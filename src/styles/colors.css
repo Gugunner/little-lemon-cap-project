@@ -1,0 +1,35 @@
+@property --primary-1 {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #495E57;
+}
+
+@property --primary-2 {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #F4CE14;
+}
+
+@property --secondary-1 {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #EE9972;
+}
+
+@property --secondary-2 {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #FBDABB;
+}
+
+@property --highlight-1 {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #EDEFEE;
+}
+
+@property --highlight-2 {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #333;
+}
