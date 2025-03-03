@@ -5,7 +5,10 @@ import "../styles/fonts.css";
 
 function LittleLemonLogo() {
   return (
-    <img src="/assets/Logo2.svg" alt="Little Lemon Alternative Logotype"></img>
+    <img
+      src="/assets/images/Logo2.svg"
+      alt="Little Lemon Alternative Logotype"
+    ></img>
   );
 }
 
@@ -79,13 +82,11 @@ function SocialMedia() {
 export default function Footer() {
   return (
     <footer className="footer-navigation outline">
-      <div className="constrain-content outline">
+      <div className="constrain-content space-around outline">
         <LittleLemonLogo />
-        <div className="space-around outline">
-          <DoormatNavigation />
-          <Contact />
-          <SocialMedia />
-        </div>
+        <DoormatNavigation />
+        <Contact />
+        <SocialMedia />
       </div>
     </footer>
   );
