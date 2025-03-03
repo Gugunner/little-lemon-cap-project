@@ -1,12 +1,12 @@
-import "../styles/landing.css";
-import "../styles/helpers.css";
+import "../../styles/landing.css";
+import "../../styles/helpers.css";
+
+import HeroSection from "./HeroSection";
 
 export default function Main() {
   return (
     <main className="outline">
-      <section className="hero-section outline">
-        <h1>Hero Section</h1>
-      </section>
+      <HeroSection />
       <section className="highlights outline">
         <h1>Highlights</h1>
       </section>
