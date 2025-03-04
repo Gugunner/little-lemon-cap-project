@@ -1,7 +1,5 @@
 import Nav from "./Nav";
-import "../styles/landing.css";
 import "../styles/header.css";
-import "../styles/helpers.css";
 
 import HorizontalLayout from "./HorizontalLayout";
 
@@ -48,7 +46,7 @@ function DesktopHeader() {
 export default function Header() {
   return (
     <header className="navigation-bar constrain-content outline">
-      <div className="flex-header outline ">
+      <div className="flex-row full-height center-items outline ">
         <HorizontalLayout>
           <DesktopHeader />
           <MobileHeader />

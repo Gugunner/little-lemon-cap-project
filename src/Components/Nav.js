@@ -1,6 +1,3 @@
-import "../styles/header.css";
-import "../styles/fonts.css";
-import "../styles/helpers.css";
 
 export default function Nav() {
   return (
