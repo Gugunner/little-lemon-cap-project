@@ -82,7 +82,7 @@ function SocialMedia() {
 export default function Footer() {
   return (
     <footer className="footer-navigation outline">
-      <div className="constrain-content space-around outline">
+      <div className="constrain-content no-xresize space-around outline">
         <LittleLemonLogo />
         <DoormatNavigation />
         <Contact />
