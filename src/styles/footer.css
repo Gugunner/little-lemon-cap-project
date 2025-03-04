@@ -1,15 +1,6 @@
 /* defined colors */
 @import url("colors.css");
 
-:root {
-  font-size: 16px;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-}
-
 @media (width <= 740px) {
   .space-around {
     flex-wrap: wrap;
