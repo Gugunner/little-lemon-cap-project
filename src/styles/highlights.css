@@ -1,0 +1,37 @@
+@import url("colors.css");
+
+@media (width <= 740px) {
+  .flex-column > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .scroll-container {
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .scrollx-content {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    gap: 2.25rem; /* 36px */
+  }
+
+  .scroll-x {
+    width: 100%;
+    overflow-x: scroll;
+  }
+}
+
+.special-dish-container {
+  width: 286px;
+  height: 452px;
+  background-color: var(--highlight-1);
+}
+
+.h2-black {
+  color: black;
+  white-space: nowrap;
+}
