@@ -1,7 +1,4 @@
-import "../styles/landing.css";
-import "../styles/helpers.css";
 import "../styles/footer.css";
-import "../styles/fonts.css";
 
 function LittleLemonLogo() {
   return (
@@ -14,9 +11,9 @@ function LittleLemonLogo() {
 
 function DoormatNavigation() {
   return (
-    <div className="vertical">
-      <h5 className="special-section">Doormat</h5>
-      <h5 className="special-section">Navigation</h5>
+    <div className="footer-menu">
+      <h5 className="special-section menu-title">Doormat</h5>
+      <h5 className="special-section menu-title">Navigation</h5>
       <ul className="split-paragraph-text">
         <li>
           <a href="http://localhost:3000">Home</a>
@@ -43,8 +40,8 @@ function DoormatNavigation() {
 
 function Contact() {
   return (
-    <div className="vertical gap">
-      <h5 className="special-section">Contact</h5>
+    <div className="footer-menu menu-gap">
+      <h5 className="special-section menu-title">Contact</h5>
       <ul className="split-paragraph-text">
         <li>
           <a href="http://localhost:3000">Address</a>
@@ -62,8 +59,8 @@ function Contact() {
 
 function SocialMedia() {
   return (
-    <div className="vertical gap">
-      <h5 className="special-section">Social Media Links</h5>
+    <div className="footer-menu menu-gap">
+      <h5 className="special-section menu-title">Social Media Links</h5>
       <ul className="split-paragraph-text">
         <li>
           <a href="https://facebook.com">Facebook</a>
@@ -81,8 +78,8 @@ function SocialMedia() {
 
 export default function Footer() {
   return (
-    <footer className="footer-navigation outline">
-      <div className="constrain-content no-xresize space-around outline">
+    <footer className="footer-navigation constrain-content outline">
+      <div className="flex-row full-width wrap-footer center-items outline">
         <LittleLemonLogo />
         <DoormatNavigation />
         <Contact />
