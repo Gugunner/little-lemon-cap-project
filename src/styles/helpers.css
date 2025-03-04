@@ -2,3 +2,29 @@
   border: 1px solid black;
 }
 
+.full-height {
+  height: 100%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.flex-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.center-items {
+  align-items: center;
+}
+
+.start-items {
+  align-items: self-start;
+}
