@@ -47,8 +47,8 @@ function DesktopHeader() {
 
 export default function Header() {
   return (
-    <header className="navigation-bar outline">
-      <div className="constrain-content no-xresize outline flex-nav">
+    <header className="navigation-bar constrain-content outline">
+      <div className="flex-header outline ">
         <HorizontalLayout>
           <DesktopHeader />
           <MobileHeader />
