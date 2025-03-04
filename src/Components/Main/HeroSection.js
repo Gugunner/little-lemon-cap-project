@@ -1,6 +1,4 @@
-import "../../styles/landing.css";
 import "../../styles/hero.css";
-import "../../styles/fonts.css";
 
 import HorizontalLayout from "../HorizontalLayout.js";
 
@@ -15,7 +13,7 @@ function RestaurantTitles() {
 
 function RestaurantDescription() {
   return (
-    <p className="lead-text">
+    <p className="lead-text hero-story">
       We are a family owned mediterranean restaurant focused on traditional
       recipes served with a modern twist.
     </p>
@@ -26,7 +24,7 @@ function RestaurantAppealAction() {
   return (
     <>
       <RestaurantDescription />
-      <button className="card-title">Reserve a table</button>
+      <button className="card-title hero-button">Reserve a table</button>
     </>
   );
 }
@@ -34,6 +32,7 @@ function RestaurantAppealAction() {
 function RestaurantImage() {
   return (
     <img
+      className="hero-img"
       src="/assets/images/restaurant_food.png"
       alt="A waiter carrying different kind of bruschettas"
     />
@@ -42,42 +41,40 @@ function RestaurantImage() {
 
 function DesktopHeroSection() {
   return (
-    <>
-      <div className="flex-horizontal">
-        <div className="flex-vertical">
+    <div className="outline">
+      <div className="flex-row">
+        <div className="start-items self-start">
           <RestaurantTitles />
           <RestaurantAppealAction />
         </div>
         <RestaurantImage />
       </div>
-    </>
+    </div>
   );
 }
 
 function MobileHeroSection() {
   return (
-    <>
+    <div className="outline">
       <RestaurantTitles />
-      <div className="flex-horizontal">
-        <div className="flex-vertical">
+      <div className="flex-row start-items">
+        <div className="flex-column">
           <RestaurantAppealAction />
         </div>
         <RestaurantImage />
       </div>
-    </>
+    </div>
   );
 }
 
 export default function HeroSection() {
   return (
     <section className="hero-section outline">
-      <div className="ribbon">
-        <div className="constrain-content no-xresize outline">
-          <HorizontalLayout>
-            <DesktopHeroSection />
-            <MobileHeroSection />
-          </HorizontalLayout>
-        </div>
+      <div className="hero-content constrain-content">
+        <HorizontalLayout>
+          <DesktopHeroSection />
+          <MobileHeroSection />
+        </HorizontalLayout>
       </div>
     </section>
   );
