@@ -1,11 +1,6 @@
 /* defined colors */
 @import url("colors.css");
 
-* {
-  margin: 0;
-  padding: 0;
-}
-
 @media (width <= 740px) {
   nav {
     width: 100%;
