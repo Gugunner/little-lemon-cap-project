@@ -2,18 +2,17 @@ import "../../styles/landing.css";
 import "../../styles/helpers.css";
 
 import HeroSection from "./HeroSection";
+import HighlightsSection from "./HighlightsSection";
 
 export default function Main() {
   return (
     <main className="outline">
       <HeroSection />
-      <section className="highlights outline">
-        <h1>Highlights</h1>
-      </section>
-      <section className="testimonials outline">
+      <HighlightsSection />
+      <section className="testimonials no-xresize outline">
         <h1>Testimonials</h1>
       </section>
-      <section className="about outline">
+      <section className="about no-xresize outline">
         <h1>About</h1>
       </section>
     </main>

@@ -72,7 +72,7 @@ export default function HeroSection() {
   return (
     <section className="hero-section outline">
       <div className="ribbon">
-        <div className="constrain-content outline">
+        <div className="constrain-content no-xresize outline">
           <HorizontalLayout>
             <DesktopHeroSection />
             <MobileHeroSection />
