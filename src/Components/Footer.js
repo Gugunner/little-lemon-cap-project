@@ -79,11 +79,13 @@ function SocialMedia() {
 export default function Footer() {
   return (
     <footer className="footer-navigation constrain-content outline">
-      <div className="flex-row full-width wrap-footer center-items outline">
-        <LittleLemonLogo />
-        <DoormatNavigation />
-        <Contact />
-        <SocialMedia />
+      <div className="flex-column justify-center full-height">
+        <div className="flex-row justify-between full-width wrap-footer center-items outline">
+          <LittleLemonLogo />
+          <DoormatNavigation />
+          <Contact />
+          <SocialMedia />
+        </div>
       </div>
     </footer>
   );

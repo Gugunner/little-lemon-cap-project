@@ -1,3 +1,6 @@
+@import url("dimensions.css");
+
+/* Dimensions */
 .outline {
   border: 1px solid black;
 }
@@ -10,16 +13,40 @@
   width: 100%;
 }
 
+/* Flexbox */
+
 .flex-row {
   display: flex;
-  justify-content: space-between;
 }
 
 .flex-column {
   display: flex;
   flex-direction: column;
+}
+
+/* Flexbox - Justify Content */
+
+.justify-between {
   justify-content: space-between;
 }
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+/* Flexbox - Align items */
 
 .center-items {
   align-items: center;
@@ -27,4 +54,54 @@
 
 .start-items {
   align-items: self-start;
+}
+
+.self-start {
+  align-self: self-start;
+}
+
+.self-center {
+  align-self: center;
+}
+
+.self-end {
+  align-self: flex-end;
+}
+
+/* Margins - Vertical */
+
+.vertical-tmargin-12 {
+  margin-top: var(--spacing-12);
+}
+
+.vertical-tmargin-24 {
+  margin-top: var(--spacing-24);
+}
+
+.vertical-tmargin-40 {
+  margin-top: var(--spacing-40);
+}
+
+.vertical-bmargin-40 {
+  margin-bottom: var(--spacing-40);
+}
+
+/* Margins - Horizontal */
+
+.horizontal-lmargin-4 {
+  margin-left: var(--spacing-4);
+}
+
+/* Paddings - Vertical */
+
+.vertical-padding-20 {
+  padding-top: var(--spacing-20);
+  padding-bottom: var(--spacing-20);
+}
+
+/* Paddings - Horizontal */
+
+.horizontal-padding-12 {
+  padding-left: var(--spacing-12);
+  padding-right: var(--spacing-12);
 }
