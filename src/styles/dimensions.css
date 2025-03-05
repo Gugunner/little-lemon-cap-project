@@ -1,0 +1,77 @@
+@property --mobile {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 320px;
+}
+
+@property --tablet {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 768px;
+}
+
+@property --desktop {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 1200px;
+}
+
+@property --spacing-4 {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 4px;
+}
+
+@property --spacing-8 {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 8px;
+}
+
+@property --spacing-12 {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 12px;
+}
+
+@property --spacing-16 {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 16px;
+}
+
+@property --spacing-20 {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 20px;
+}
+
+@property --spacing-24 {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 24px;
+}
+
+@property --spacing-28 {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 28px;
+}
+
+@property --spacing-32 {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 32px;
+}
+
+@property --spacing-36 {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 36px;
+}
+
+@property --spacing-40 {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 40px;
+}
