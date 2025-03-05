@@ -1,11 +1,11 @@
 /* defined colors */
 @import url("colors.css");
+@import url("dimensions.css");
 
-@media (width <= 740px) {
+@media (width < 768px) {
   .constrain-content {
     padding-left: 5%;
     padding-right: 5%;
-    height: 100%;
   }
 
   .navigation-bar {
@@ -39,11 +39,10 @@
   }
 }
 
-@media (740px < width <= 1200px) {
+@media (768px <= width < 1200px) {
   .constrain-content {
     padding-left: 6.72%;
     padding-right: 6.72%;
-    height: 100%;
   }
 
   .navigation-bar {
@@ -55,7 +54,7 @@
   }
 
   .highlights {
-    height: 572px;
+    height: 640px;
   }
 
   .testimonials {
@@ -81,7 +80,6 @@
   .constrain-content {
     padding-left: 20.13%;
     padding-right: 20.13%;
-    height: 100%;
   }
 
   .navigation-bar {
@@ -114,10 +112,6 @@
   }
 }
 
-main {
-  width: 100vw;
-}
-
 .navigation-bar {
   background-color: #d9d9d9;
   width: 100%;
@@ -125,30 +119,31 @@ main {
 
 .hero-section {
   background-color: #818181;
-  width: 100vw;
+  width: 100%;
 }
 
 .highlights {
   background-color: #d9d9d9;
-  width: 100vw;
+  width: 100%;
 }
 
 .testimonials {
   background-color: #1b1b1b;
-  width: 100vw;
+  width: 100%;
 }
 
 .about {
   background-color: #6c6c6c;
-  width: 100vw;
+  width: 100%;
 }
 
 .footer-navigation {
   background-color: #d9d9d9;
-  width: 100vw;
+  width: 100%;
 }
 
 button {
+  min-width: 180px;
   border: transparent;
   border-radius: 16px;
   color: black;
