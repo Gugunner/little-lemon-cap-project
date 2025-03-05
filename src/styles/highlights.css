@@ -1,12 +1,7 @@
 @import url("colors.css");
+@import url("dimensions.css");
 
-@media (width <= 740px) {
-  .flex-column > div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
+@media (width < 768px) {
   .scroll-container {
     width: 100%;
     overflow-x: auto;
@@ -16,7 +11,45 @@
   .scrollx-content {
     display: inline-flex;
     flex-wrap: nowrap;
-    gap: 2.25rem; /* 36px */
+    gap: var(--spacing-32);
+  }
+
+  .scroll-x {
+    width: 100%;
+    overflow-x: scroll;
+  }
+}
+
+@media (768px <= width <= 1200px) {
+  .scroll-container {
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .scrollx-content {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    gap: var(--spacing-32);
+  }
+
+  .scroll-x {
+    width: 100%;
+    overflow-x: scroll;
+  }
+}
+
+@media (width > 1200px) {
+  .scroll-container {
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .scrollx-content {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    gap: var(--spacing-32);
   }
 
   .scroll-x {
@@ -26,12 +59,21 @@
 }
 
 .special-dish-container {
-  width: 286px;
+  width: 260px;
   height: 452px;
   background-color: var(--highlight-1);
 }
 
-.h2-black {
+.specials-title {
   color: black;
   white-space: nowrap;
+}
+
+.special-dish-price {
+  color: var(--secondary-1);
+}
+
+.special-dish-description {
+  white-space: wrap;
+  color: var(--primary-1);
 }
