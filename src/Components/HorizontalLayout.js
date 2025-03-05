@@ -1,4 +1,4 @@
-import { sm } from "../Constants/sizes.js";
+import { md } from "../Constants/sizes.js";
 import PropTypes from "prop-types";
 
 import useWindowDimensions from "../Hooks/useWindowDimensions.js";
@@ -20,6 +20,7 @@ export default function HorizontalLayout({ children, breakpoints }) {
       "Layout componen expects at least two children but received:",
       children
     );
+    //TODO: Replace with an Error Component
     return (
       <div>
         <h1>Error Component</h1>
@@ -33,6 +34,7 @@ export default function HorizontalLayout({ children, breakpoints }) {
       console.error(
         "There must be at least one more children than breakpoint for this Layout component to work"
       );
+      //TODO: Replace with an Error Component
       return (
         <div>
           <h1>Error Component</h1>
@@ -44,7 +46,7 @@ export default function HorizontalLayout({ children, breakpoints }) {
     const descendingBreakpoints = [...breakpoints].sort((a, b) => b - a);
 
     // Validates that all breakpoints are greeater than 0.
-    for (const bp in descendingBreakpoints) {
+    for (const bp of descendingBreakpoints) {
       if (bp <= 0) {
         console.error(
           `Invalid breakpoint: Expected a positibve number, but received ${bp}`
@@ -53,7 +55,7 @@ export default function HorizontalLayout({ children, breakpoints }) {
     }
 
     for (var i = 0; i < descendingBreakpoints.length; i++) {
-      if (width > descendingBreakpoints[i]) {
+      if (width >= descendingBreakpoints[i]) {
         return children[i];
       }
     }
@@ -63,7 +65,7 @@ export default function HorizontalLayout({ children, breakpoints }) {
   }
 
   // Uses the default breakpoint to return the layout.
-  return width > sm ? children[0] : children[1];
+  return width >= md ? children[0] : children[1];
 }
 
 HorizontalLayout.propTypes = {
