@@ -13,6 +13,26 @@
   width: 100%;
 }
 
+/* Grid */
+
+.grid {
+  display: grid;
+}
+
+/* Grid - Justify Items */
+
+.justify-istretch {
+  justify-items: stretch;
+}
+
+.justify-self-start {
+  justify-self: start;
+}
+
+.justify-self-end {
+  justify-self: end;
+}
+
 /* Flexbox */
 
 .flex-row {
@@ -32,6 +52,10 @@
 
 .justify-around {
   justify-content: space-around;
+}
+
+.justify-evenly {
+  justify-content: space-evenly;
 }
 
 .justify-start {
@@ -99,9 +123,19 @@
   padding-bottom: var(--spacing-20);
 }
 
+.vertical-bpadding-28 {
+  padding-bottom: var(--spacing-28);
+}
+
 /* Paddings - Horizontal */
 
 .horizontal-padding-12 {
   padding-left: var(--spacing-12);
   padding-right: var(--spacing-12);
+}
+
+/* Border - Radius */
+.border-top-radius-8 {
+  border-top-left-radius: var(--spacing-8);
+  border-top-right-radius: var(--spacing-8);
 }
