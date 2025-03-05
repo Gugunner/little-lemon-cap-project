@@ -1,13 +1,13 @@
 /* defined colors */
 @import url("colors.css");
 
-@media (width <= 740px) {
+@media (width < 768px) {
   .wrap-footer {
     flex-wrap: wrap;
   }
 }
 
-/* @media (740px < width <= 1200px) {
+/* @media (768px <= width < 1200px) {
 
 } */
 
@@ -25,11 +25,11 @@
   gap: 2rem;
 }
 
-.footer-menu  ul {
+.footer-menu ul {
   list-style-type: none;
 }
 
-.footer-menu  li a {
+.footer-menu li a {
   text-decoration: none;
 }
 

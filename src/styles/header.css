@@ -1,7 +1,7 @@
 /* defined colors */
 @import url("colors.css");
 
-@media (width <= 740px) {
+@media (width < 768px) {
   nav {
     width: 100%;
     margin-left: 2vw;
@@ -18,7 +18,7 @@
   }
 }
 
-@media (740px < width <= 1200px) {
+@media (768px <= width < 1200px) {
   nav {
     width: 100%;
   }
@@ -49,4 +49,3 @@
     display: inline-block;
   }
 }
-

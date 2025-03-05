@@ -1,6 +1,6 @@
 @import url("colors.css");
 
-@media (width <= 740px) {
+@media (width < 768px) {
   .hero-button {
     margin-top: 20px;
     margin-bottom: 32px;
@@ -17,7 +17,7 @@
   }
 }
 
-@media (740px < width <= 1200px) {
+@media (768px <= width < 1200px) {
   .hero-button {
     margin-top: 12px;
   }
@@ -74,6 +74,3 @@ h2 {
 .hero-img {
   border-radius: 16px;
 }
-
-
-

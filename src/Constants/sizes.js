@@ -1,3 +1,10 @@
-export const sm = 740;
+// Declares all window breakpoint width sizes used by the app.
 
-export const md = 1200;
+//Mobile
+export const sm = 320;
+
+//Tablet
+export const md = 768;
+
+//Desktop
+export const lg = 1200;
