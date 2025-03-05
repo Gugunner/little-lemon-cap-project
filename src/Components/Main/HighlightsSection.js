@@ -9,29 +9,29 @@ import useWindowDimensions from "../../Hooks/useWindowDimensions";
 function SpecialDish() {
   return (
     <div
-      className="special-dish-container flex-column justify-start"
+      className="special-dish-container border-top-radius-8 outline grid special-dish-grid"
       onClick={() => console.log("Clicked")}
     >
       <img src="/assets/images/greek-salad.png" alt="Greek salad" />
-      <div className=" horizontal-padding-12 vertical-padding-20 full-height">
-        <div className="flex-column justify-start full-height">
-          <div className="flex-row justify-between">
-            <h4 className="card-title">Greek Salad</h4>
-            <h4 className="card-title special-dish-price">$ 12.99</h4>
-          </div>
-          <p className="paragraph-text special-dish-description vertical-tmargin-12">
-            The famous greek salad of crispy lettuce, peppers, olives and our
-            Chicago style feta cheese, garnished with crunchy garlic and
-            rosemary croutons.
-          </p>
-          <div className="flex-row justify-start vertical-tmargin-40">
-            <p className="highlight-text self-end">Order a delivery</p>
-            <img
-              className="horizontal-lmargin-4"
-              src="/assets/svgs/motorcycle.svg"
-              alt="A motorcycle icon"
-            />
-          </div>
+      <div className="horizontal-padding-12 vertical-bpadding-28 grid special-dish-vgrid">
+        <div className="grid special-dish-hgrid">
+          <h4 className="card-title justify-self-start">Greek Salad</h4>
+          <h4 className="card-title special-dish-price justify-self-end">
+            $ 12.99
+          </h4>
+        </div>
+        <p className="paragraph-text special-dish-description">
+          The famous greek salad of crispy lettuce, peppers, olives and our
+          Chicago style feta cheese, garnished with crunchy garlic and rosemary
+          croutons.
+        </p>
+        <div className="grid special-dish-hgrid">
+          <p className="highlight-text">Order a delivery</p>
+          <img
+            className="horizontal-lmargin-4"
+            src="/assets/svgs/motorcycle.svg"
+            alt="A motorcycle icon"
+          />
         </div>
       </div>
     </div>
@@ -40,8 +40,8 @@ function SpecialDish() {
 
 function ScrollableDishes() {
   return (
-    <div className="scroll-container">
-      <div className="scrollx-content outline">
+    <div className="scroll-container border-top-radius-8">
+      <div className="scrollx-content border-top-radius-8">
         {[1, 2, 3].map((v) => {
           return <SpecialDish key={v} />;
         })}
