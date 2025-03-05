@@ -58,7 +58,7 @@ function MobileHeroSection() {
     <div className="outline">
       <RestaurantTitles />
       <div className="flex-row start-items">
-        <div className="flex-column">
+        <div className="flex-column justify-between">
           <RestaurantAppealAction />
         </div>
         <RestaurantImage />
