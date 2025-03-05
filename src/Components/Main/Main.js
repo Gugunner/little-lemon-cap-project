@@ -1,6 +1,3 @@
-import "../../styles/landing.css";
-import "../../styles/helpers.css";
-
 import HeroSection from "./HeroSection";
 import HighlightsSection from "./HighlightsSection";
 
