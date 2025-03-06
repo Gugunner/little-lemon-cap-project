@@ -7,14 +7,7 @@
 
 /* @media (width > 1200px) {} */
 
-.scroll-container {
-  width: 100%;
-  overflow-x: auto;
-}
-
-.scrollx-content {
-  display: inline-flex;
-  flex-wrap: nowrap;
+.highlights .scrollx-content {
   gap: var(--spacing-32);
 }
 

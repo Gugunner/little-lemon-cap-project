@@ -25,14 +25,7 @@
   align-items: center;
 }
 
-.scroll-container {
-  width: 100%;
-  overflow-x: auto;
-}
-
-.scrollx-content {
-  display: inline-flex;
-  flex-wrap: nowrap;
+.testimonials .scrollx-content {
   gap: var(--spacing-20);
 }
 
