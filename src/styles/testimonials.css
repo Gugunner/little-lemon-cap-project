@@ -1,0 +1,64 @@
+@import url("colors.css");
+@import url("dimensions.css");
+
+@media (width < 768px) {
+  .testimonials-grid {
+    grid-template-rows: 44px auto;
+  }
+}
+
+@media (768px <= width <= 1200px) {
+  .testimonials-grid {
+    grid-template-rows: 88px 220px;
+  }
+}
+
+@media (width > 1200px) {
+  .testimonials-grid {
+    grid-template-rows: 88px 220px;
+  }
+}
+
+.testimonials-grid {
+  grid-template-columns: 1fr;
+  gap: var(--spacing-20);
+  align-items: center;
+}
+
+.scroll-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.scrollx-content {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  gap: var(--spacing-20);
+}
+
+.testimonial-grid {
+  width: 200px;
+  grid-template-rows: 20px auto auto;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-16);
+  background-color: var(--highlight-1);
+  max-height: 220px;
+}
+
+.star-hgrid {
+  grid-template-columns: auto 1fr;
+  grid-template-rows: 1fr;
+  gap: var(--spacing-4);
+}
+
+.user-hgrid {
+  grid-template-columns: 54px auto;
+  grid-template-rows: 54px;
+  gap: var(--spacing-16);
+  align-items: center;
+}
+
+.testimonials-grid h2 {
+  color: black;
+  text-align: center;
+}
