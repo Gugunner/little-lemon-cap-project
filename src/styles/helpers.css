@@ -2,9 +2,9 @@
 
 /* Dimensions */
 
-.outline {
+/* .outline {
   border: 1px solid black;
-}
+} */
 
 .full-height {
   height: 100%;
@@ -119,6 +119,11 @@
 
 /* Paddings - Vertical */
 
+.vertical-padding-32 {
+  padding-top: var(--spacing-32);
+  padding-bottom: var(--spacing-32);
+}
+
 .vertical-padding-20 {
   padding-top: var(--spacing-20);
   padding-bottom: var(--spacing-20);
@@ -149,4 +154,15 @@
 .border-top-radius-8 {
   border-top-left-radius: var(--spacing-8);
   border-top-right-radius: var(--spacing-8);
+}
+
+/* Scroll content  */
+.scroll-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.scrollx-content {
+  display: inline-flex;
+  flex-wrap: nowrap;
 }
