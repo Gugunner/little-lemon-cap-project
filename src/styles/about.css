@@ -1,0 +1,127 @@
+@import url("colors.css");
+@import url("dimensions.css");
+
+@media (width < 768px) {
+  .about-grid {
+    grid-template-areas:
+      "cell-a0 cell-a0"
+      "cell-a1 cell-a1"
+      "cell-a2 cell-a2";
+  }
+
+  .titles {
+    grid-area: cell-a0;
+  }
+
+  .about-description {
+    grid-area: cell-a1;
+  }
+
+  .about-founder-portraits {
+    grid-area: cell-a2;
+  }
+
+  .about-founder-portraits img:first-child {
+    width: 25.69%;
+    left: 23.61%;
+    bottom: 0;
+  }
+
+  .about-founder-portraits img:last-child {
+    width: 25.69%;
+    left: 41.66%;
+    bottom: 40%;
+  }
+}
+
+@media (768px <= width <= 1200px) {
+  .about-grid {
+    grid-template-areas:
+      "cell-a0 cell-b0"
+      "cell-a1 cell-b0"
+      "cell-a2 cell-b2"; /* Add another row just to create a padding effect */
+  }
+
+  .titles {
+    grid-area: cell-a0;
+  }
+
+  .about-description {
+    grid-area: cell-a1;
+  }
+
+  .about-founder-portraits {
+    grid-area: cell-b0;
+  }
+
+  .about-founder-portraits img:first-child {
+    width: 43.88%;
+    left: 15%;
+    bottom: 0;
+  }
+
+  .about-founder-portraits img:last-child {
+    width: 43.88%;
+    left: 45.75%;
+    bottom: 16%;
+  }
+}
+
+@media (width > 1200px) {
+  .about-grid {
+    grid-template-areas:
+      "cell-a0 cell-b0"
+      "cell-a1 cell-b0"
+      "cell-a2 cell-b0";
+  }
+
+  .titles {
+    grid-area: cell-a0;
+  }
+
+  .about-description {
+    grid-area: cell-a1;
+  }
+
+  .about-founder-portraits {
+    grid-area: cell-b0;
+  }
+
+  .about-founder-portraits img:first-child {
+    width: 63.63%;
+    max-width: 266px;
+    left: 15%;
+    bottom: 0;
+  }
+
+  .about-founder-portraits img:last-child {
+    width: 63.63%;
+    left: 59.59%;
+    max-width: 266px;
+    bottom: 20%;
+  }
+}
+
+.about-founder-portraits {
+  position: relative;
+}
+
+.about-founder-portraits img:first-child {
+  position: absolute;
+}
+
+.about-founder-portraits img:last-child {
+  position: absolute;
+  z-index: 1;
+}
+
+.about-grid {
+  grid-template-columns: minmax(280px, 1fr) 1fr;
+  grid-template-rows: 128px auto auto;
+  gap: var(--spacing-20);
+}
+
+.about h1,
+.about h2 {
+  color: black;
+}
