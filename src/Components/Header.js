@@ -1,7 +1,7 @@
 import Nav from "./Nav";
 import "../styles/header.css";
 
-import HorizontalLayout from "./HorizontalLayout";
+import { HorizontalLayout } from "./HorizontalLayout";
 
 function LittleLemonLogo() {
   return (

@@ -5,13 +5,12 @@ import useWindowDimensions from "../Hooks/useWindowDimensions.js";
 
 /**A custom React Component that arranges layout based on the breakpoints provided
  * @constructor
- * @param {Array.ReactNode} children - The different children that are rendered based on the breakpoint. Order them from the biggest breakpoint to the smallest breakpoint,
+ * @param {ReactNode[]} children - The different children that are rendered based on the breakpoint. Order them from the biggest breakpoint to the smallest breakpoint,
  * must always have one more child than the number of breakpoints.
- * @param {Array.number} breakpoints - All the breakpoints that can be applied to the layout, will be copied and sorted in descending order.
+ * @param {number[]} breakpoints - All the breakpoints that can be applied to the layout, will be copied and sorted in descending order.
  * @returns {ReactNode} - The react element chosen based on the breakpoint.
  */
-
-export default function HorizontalLayout({ children, breakpoints }) {
+export function HorizontalLayout({ children, breakpoints }) {
   const { width } = useWindowDimensions();
 
   // Checks if there are at least two children for the breakpoints or the default breakpoint.
