@@ -2,7 +2,7 @@ import "../../styles/highlights.css";
 
 import { lg, md } from "../../Constants/sizes";
 
-import HorizontalLayout from "../HorizontalLayout";
+import { HorizontalLayout } from "../HorizontalLayout";
 
 import useWindowDimensions from "../../Hooks/useWindowDimensions";
 

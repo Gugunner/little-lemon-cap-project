@@ -1,6 +1,6 @@
 import "../../styles/hero.css";
 
-import HorizontalLayout from "../HorizontalLayout.js";
+import { HorizontalLayout } from "../HorizontalLayout.js";
 
 function RestaurantTitles() {
   return (
