@@ -1,17 +1,16 @@
 import HeroSection from "./HeroSection";
 import HighlightsSection from "./HighlightsSection";
+import TestimonialsSection from "./TestimonialsSection";
 
 export default function Main() {
   return (
     <main className="outline">
       <HeroSection />
       <HighlightsSection />
-      <section className="testimonials no-xresize outline">
-        <h1>Testimonials</h1>
-      </section>
-      <section className="about no-xresize outline">
+      <TestimonialsSection />
+      {/* <section className="about outline">
         <h1>About</h1>
-      </section>
+      </section> */}
     </main>
   );
 }
