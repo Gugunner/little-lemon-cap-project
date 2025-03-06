@@ -59,6 +59,15 @@
   font-size: 1.125rem; /* 18px */
 }
 
+.card-title-height {
+  font-family: "Karla", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.125;
+}
+
 .paragraph-text {
   font-family: "Karla", serif;
   font-optical-sizing: auto;
