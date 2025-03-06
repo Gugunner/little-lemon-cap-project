@@ -18,6 +18,15 @@
   font-size: 2.5rem; /* 40px */
 }
 
+.sub-title-spacing {
+  font-family: "Markazi Text", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2.5rem; /* 40px */
+  letter-spacing: 0.25rem; /* 4px */
+}
+
 .lead-text {
   font-family: "Karla", serif;
   font-optical-sizing: auto;
