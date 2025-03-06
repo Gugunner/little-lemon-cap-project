@@ -1,6 +1,7 @@
 @import url("dimensions.css");
 
 /* Dimensions */
+
 .outline {
   border: 1px solid black;
 }
@@ -21,7 +22,7 @@
 
 /* Grid - Justify Items */
 
-.justify-istretch {
+.justify-items-stretch {
   justify-items: stretch;
 }
 
@@ -123,6 +124,11 @@
   padding-bottom: var(--spacing-20);
 }
 
+.vertical-padding-16 {
+  padding-top: var(--spacing-16);
+  padding-bottom: var(--spacing-16);
+}
+
 .vertical-bpadding-28 {
   padding-bottom: var(--spacing-28);
 }
@@ -132,6 +138,11 @@
 .horizontal-padding-12 {
   padding-left: var(--spacing-12);
   padding-right: var(--spacing-12);
+}
+
+.horizontal-padding-16 {
+  padding-left: var(--spacing-16);
+  padding-right: var(--spacing-16);
 }
 
 /* Border - Radius */
