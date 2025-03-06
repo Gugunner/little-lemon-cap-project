@@ -1,6 +1,7 @@
 import HeroSection from "./HeroSection";
 import HighlightsSection from "./HighlightsSection";
 import TestimonialsSection from "./TestimonialsSection";
+import AboutSection from "./AboutSection";
 
 export default function Main() {
   return (
@@ -8,9 +9,7 @@ export default function Main() {
       <HeroSection />
       <HighlightsSection />
       <TestimonialsSection />
-      {/* <section className="about outline">
-        <h1>About</h1>
-      </section> */}
+      <AboutSection />
     </main>
   );
 }
