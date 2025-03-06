@@ -20,6 +20,7 @@ export default function AboutSection() {
           <div className="about-founder-portraits full-width">
             {[1, 2].map((v) => (
               <img
+                key={v}
                 src="/assets/images/founder.png"
                 alt="Founder of Restaurant portrait"
               />

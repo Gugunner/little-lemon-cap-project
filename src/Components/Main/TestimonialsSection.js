@@ -12,14 +12,26 @@ function StarRating({ rating }) {
   return (
     <>
       {range(0, filledStarCount, 1).map((v) => (
-        <img src="/assets/svgs/filled-star.svg" alt="Filled Star" />
+        <img
+          key={`filled-${v}`}
+          src="/assets/svgs/filled-star.svg"
+          alt="Filled Star"
+        />
       ))}
       {hasHalfFilledStar && (
-        <img src="/assets/svgs/half-filled-star.svg" alt="Filled Star" />
+        <img
+          key="half-filled-1"
+          src="/assets/svgs/half-filled-star.svg"
+          alt="Filled Star"
+        />
       )}
       {range(0, 5 - filledStarCount - (hasHalfFilledStar ? 1 : 0), 1).map(
         (v) => (
-          <img src="/assets/svgs/empty-star.svg" alt="Filled Star" />
+          <img
+            key={`empty-${v}`}
+            src="/assets/svgs/empty-star.svg"
+            alt="Filled Star"
+          />
         )
       )}
     </>
