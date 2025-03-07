@@ -1,16 +1,20 @@
-import "../../styles/highlights.css";
-
+import React from "react";
 import { lg, md } from "../../Constants/sizes";
-
-import { HorizontalLayout } from "../HorizontalLayout";
-
 import useWindowDimensions from "../../Hooks/useWindowDimensions";
+import "../../styles/highlights.css";
+import { HorizontalLayout } from "../HorizontalLayout";
 
 function SpecialDish() {
   return (
     <div
       className="special-dish-container border-top-radius-8 outline grid special-dish-grid"
       onClick={() => console.log("Clicked")}
+      onKeyUp={(e) =>
+        (e.key === "Enter" || e.key === " ") && console.log("Pressed")
+      }
+      role="button"
+      aria-label="Order Greek Salad - $12.99"
+      tabIndex={0}
     >
       <img src="/assets/images/greek-salad.png" alt="Greek salad" />
       <div className="horizontal-padding-12 vertical-bpadding-28 grid special-dish-vgrid">
@@ -64,7 +68,10 @@ function SpecialsTitle({ width }) {
 
 function OnlineMenuButton({ width }) {
   return (
-    <button className={`card-title ${width < md ? "vertical-tmargin-24" : ""}`}>
+    <button
+      className={`card-title ${width < md ? "vertical-tmargin-24" : ""}`}
+      onClick={() => console.log("Online Menu")}
+    >
       Online Menu
     </button>
   );
