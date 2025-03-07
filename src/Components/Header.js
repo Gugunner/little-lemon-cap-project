@@ -1,5 +1,5 @@
-import Nav from "./Nav";
 import "../styles/header.css";
+import Nav from "./Nav";
 
 import { HorizontalLayout } from "./HorizontalLayout";
 

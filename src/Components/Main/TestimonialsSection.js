@@ -1,10 +1,10 @@
 import "../../styles/testimonials.css";
 
-import {
-  isAboveFractionalThreshold,
-  getWholePart,
-} from "../../utils/number.js";
 import { range } from "../../utils/array.js";
+import {
+  getWholePart,
+  isAboveFractionalThreshold,
+} from "../../utils/number.js";
 
 function StarRating({ rating }) {
   const filledStarCount = getWholePart(rating);

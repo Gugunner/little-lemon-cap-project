@@ -1,4 +1,3 @@
-
 export default function Nav() {
   return (
     <nav className="outline">
@@ -19,7 +18,10 @@ export default function Nav() {
           </a>
         </li>
         <li>
-          <a className="special-section" href="http://localhost:3000/reservations">
+          <a
+            className="special-section"
+            href="http://localhost:3000/reservations"
+          >
             Reservations
           </a>
         </li>

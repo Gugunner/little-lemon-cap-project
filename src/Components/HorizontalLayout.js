@@ -1,5 +1,5 @@
-import { md } from "../Constants/sizes.js";
 import PropTypes from "prop-types";
+import { md } from "../Constants/sizes.js";
 
 import useWindowDimensions from "../Hooks/useWindowDimensions.js";
 
