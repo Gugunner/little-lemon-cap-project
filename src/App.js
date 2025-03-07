@@ -1,10 +1,11 @@
+import React from "react";
+import Footer from "./Components/Footer";
 import Header from "./Components/Header";
 import Main from "./Components/Main/Main";
-import Footer from "./Components/Footer";
 
-import "./styles/landing.css";
-import "./styles/helpers.css";
 import "./styles/fonts.css";
+import "./styles/helpers.css";
+import "./styles/landing.css";
 
 function App() {
   return (

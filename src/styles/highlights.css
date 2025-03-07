@@ -16,7 +16,8 @@
   white-space: nowrap;
 }
 
-.special-dish-container {
+.special-dish-container:focus-visible {
+  outline: 3px solid white;
   width: 260px;
   height: 452px;
   background-color: var(--highlight-1);
