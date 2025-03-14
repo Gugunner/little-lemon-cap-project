@@ -1,5 +1,50 @@
 @import url("dimensions.css");
 
+/* Media Query */
+
+@media (width < 768px) {
+  .constrain-content {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+}
+
+@media (768px <= width < 1200px) {
+  .constrain-content {
+    padding-left: 2.08%;
+    padding-right: 2.08%;
+  }
+}
+
+@media (width > 1200px) {
+  .constrain-content {
+    padding-left: 20.13%;
+    padding-right: 20.13%;
+  }
+}
+
+/* Links */
+li a {
+  text-decoration: none;
+  color: black;
+}
+
+li a:link {
+  color: black;
+}
+
+li a:active {
+  color: black;
+}
+
+li a:hover {
+  color: var(--primary-1);
+}
+
+li a:visited {
+  color: var(--primary-1);
+}
+
 /* Dimensions */
 
 /* .outline {
