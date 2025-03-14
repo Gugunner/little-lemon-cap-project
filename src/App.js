@@ -1,7 +1,9 @@
 import React from "react";
-import Footer from "./Components/Footer";
-import Header from "./Components/Header";
-import Main from "./Components/Main/Main";
+import { Route, Routes } from "react-router";
+import LandingPage from "./Components/LandingPage";
+import ReserveTablePage from "./Components/ReserveTablePage";
+
+import { homePath, reserveTablePath } from "./Constants/paths";
 
 import "./styles/fonts.css";
 import "./styles/helpers.css";
@@ -9,12 +11,10 @@ import "./styles/landing.css";
 
 function App() {
   return (
-    <>
-      <Header />
-      <Main />
-      <hr />
-      <Footer />
-    </>
+    <Routes>
+      <Route path={homePath} element={<LandingPage />} />
+      <Route path={reserveTablePath} element={<ReserveTablePage />} />
+    </Routes>
   );
 }
 
