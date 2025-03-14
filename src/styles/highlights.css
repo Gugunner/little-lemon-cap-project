@@ -3,9 +3,9 @@
 
 /* @media (width < 768px) {} */
 
-/* @media (768px <= width <= 1200px) {} */
+/* @media (768px <= width < 1200px) {} */
 
-/* @media (width > 1200px) {} */
+/* @media (width >= 1200px) {} */
 
 .highlights .scrollx-content {
   gap: var(--spacing-32);

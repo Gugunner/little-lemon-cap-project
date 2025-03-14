@@ -3,11 +3,6 @@
 @import url("dimensions.css");
 
 @media (width < 768px) {
-  .constrain-content {
-    padding-left: 5%;
-    padding-right: 5%;
-  }
-
   .navigation-bar {
     height: 120px;
   }
@@ -40,11 +35,6 @@
 }
 
 @media (768px <= width < 1200px) {
-  .constrain-content {
-    padding-left: 6.72%;
-    padding-right: 6.72%;
-  }
-
   .navigation-bar {
     height: 120px;
   }
@@ -76,12 +66,7 @@
   }
 }
 
-@media (width > 1200px) {
-  .constrain-content {
-    padding-left: 20.13%;
-    padding-right: 20.13%;
-  }
-
+@media (width >= 1200px) {
   .navigation-bar {
     height: 120px;
   }
@@ -142,25 +127,4 @@ button {
   border-radius: 16px;
   color: black;
   background-color: var(--primary-2);
-}
-
-li a {
-  text-decoration: none;
-  color: black;
-}
-
-li a:link {
-  color: black;
-}
-
-li a:active {
-  color: black;
-}
-
-li a:hover {
-  color: var(--primary-1);
-}
-
-li a:visited {
-  color: var(--primary-1);
 }
