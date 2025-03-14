@@ -15,12 +15,16 @@ function LittleLemonLogo() {
 }
 
 function SideMenu() {
-  return <img src="/assets/svgs/hamburger_menu.svg" alt="Hamburger icon" />;
+  return <img className="header-icon" src="/assets/svgs/hamburger_menu.svg" alt="Hamburger icon" />;
 }
 
 function Basket() {
   return (
-    <img src="/assets/svgs/basket.svg" alt="Basket icon for online delivery" />
+    <img
+      className="header-icon"
+      src="/assets/svgs/basket.svg"
+      alt="Basket icon for online delivery"
+    />
   );
 }
 

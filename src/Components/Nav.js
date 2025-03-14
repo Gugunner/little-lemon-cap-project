@@ -1,41 +1,40 @@
 import React from "react";
+import { NavLink } from "react-router";
+import { homePath, reserveTablePath } from "../Constants/paths";
 
 export default function Nav() {
   return (
     <nav className="outline">
       <ul>
         <li>
-          <a className="special-section" href="http://localhost:3000">
+          <NavLink to={homePath} className="special-section">
             Home
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a className="special-section" href="http://localhost:3000/about">
+          <NavLink to="http://localhost:3000/about" className="special-section">
             About
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a className="special-section" href="http://localhost:3000/menu">
+          <NavLink to="http://localhost:3000/menu" className="special-section">
             Menu
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a
-            className="special-section"
-            href="http://localhost:3000/reservations"
-          >
+          <NavLink to={reserveTablePath} className="special-section">
             Reservations
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a className="special-section" href="http://localhost:3000/order">
+          <NavLink to="http://localhost:3000/order" className="special-section">
             Order Online
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a className="special-section" href="http://localhost:3000/login">
+          <NavLink to="http://localhost:3000/login" className="special-section">
             Login
-          </a>
+          </NavLink>
         </li>
       </ul>
     </nav>

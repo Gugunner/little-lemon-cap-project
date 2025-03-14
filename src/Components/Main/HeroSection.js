@@ -1,7 +1,10 @@
 import React from "react";
 import "../../styles/hero.css";
 
+import { Link } from "react-router";
 import { HorizontalLayout } from "../HorizontalLayout.js";
+
+import { reserveTablePath } from "../../Constants/paths.js";
 
 function RestaurantTitles() {
   return (
@@ -25,7 +28,9 @@ function RestaurantAppealAction() {
   return (
     <>
       <RestaurantDescription />
-      <button className="card-title hero-button">Reserve a table</button>
+      <button className="card-title hero-button">
+        <Link to={reserveTablePath}>Reserve a Table</Link>
+      </button>
     </>
   );
 }
