@@ -1,9 +1,17 @@
 import React from "react";
+import Footer from "./Footer";
+import Header from "./Header";
+
+import "../styles/helpers.css";
+import "../styles/reserve-table.css";
+import Main from "./ReserveTable/Main";
 
 export default function ReserveTablePage() {
   return (
-    <div>
-      <h1>Reserve Table Page</h1>
-    </div>
+    <>
+      <Header />
+      <Main />
+      <Footer />
+    </>
   );
 }
