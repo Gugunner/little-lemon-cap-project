@@ -7,7 +7,7 @@ import {
   HeroTitles,
 } from "./CommonHero";
 
-export default function Hero({
+export default function HeroSection({
   sectionClass = "",
   title,
   subtitle,

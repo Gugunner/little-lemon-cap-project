@@ -1,10 +1,10 @@
 import React from "react";
 import { homePath } from "../../Constants/paths";
-import Hero from "../Common/Hero/Hero";
+import HeroSection from "../Common/Hero/HeroSection";
 
-export default function HeroSection() {
+export default function ReserveHeroSection() {
   return (
-    <Hero
+    <HeroSection
       sectionClass="reserve-hero-section"
       title="Little Lemon"
       subtitle="Chicago"
