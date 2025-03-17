@@ -6,16 +6,18 @@ import { HorizontalLayout } from "./HorizontalLayout";
 
 function LittleLemonLogo() {
   return (
-    <img
-      className="outline"
-      src="/assets/images/Logo.svg"
-      alt="Little Lemon Restaurant Logo"
-    />
+    <img src="/assets/images/Logo.svg" alt="Little Lemon Restaurant Logo" />
   );
 }
 
 function SideMenu() {
-  return <img className="header-icon" src="/assets/svgs/hamburger_menu.svg" alt="Hamburger icon" />;
+  return (
+    <img
+      className="header-icon"
+      src="/assets/svgs/hamburger_menu.svg"
+      alt="Hamburger icon"
+    />
+  );
 }
 
 function Basket() {
@@ -50,8 +52,8 @@ function DesktopHeader() {
 
 export default function Header() {
   return (
-    <header className="navigation-bar constrain-content outline">
-      <div className="flex-row justify-between full-height center-items outline ">
+    <header className="navigation-bar constrain-content">
+      <div className="flex-row justify-between full-height center-items ">
         <HorizontalLayout>
           <DesktopHeader />
           <MobileHeader />

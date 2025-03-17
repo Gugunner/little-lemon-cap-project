@@ -41,7 +41,7 @@ function StarRating({ rating }) {
 
 function Testimonial() {
   return (
-    <div className="grid testimonial-grid outline vertical-padding-16 horizontal-padding-16">
+    <div className="grid testimonial-grid vertical-padding-16 horizontal-padding-16">
       <div className="grid star-hgrid">
         <p>5</p>
         <div>
@@ -77,8 +77,8 @@ function TestimonialScroll() {
 
 export default function TestimonialsSection() {
   return (
-    <section className="testimonials outline">
-      <div className="constrain-content outline full-height">
+    <section className="testimonials">
+      <div className="constrain-content full-height">
         <div className="grid testimonials-grid full-height vertical-padding-20">
           <div>
             <h2 className="sub-title-spacing">Testimonials</h2>
