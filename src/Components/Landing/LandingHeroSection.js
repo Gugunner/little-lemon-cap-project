@@ -1,10 +1,10 @@
 import React from "react";
 import { reserveTablePath } from "../../Constants/paths.js";
-import Hero from "../Common/Hero/Hero.js";
+import HeroSection from "../Common/Hero/HeroSection.js";
 
-export default function HeroSection() {
+export default function LandingHeroSection() {
   return (
-    <Hero
+    <HeroSection
       sectionClass="landing-hero-section"
       title="Little Lemon"
       subtitle="Chicago"

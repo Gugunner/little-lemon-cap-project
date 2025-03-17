@@ -1,6 +1,6 @@
 import React from "react";
 
-import HeroSection from "./HeroSection";
+import HeroSection from "./ReserveHeroSection";
 
 export default function Main() {
   return (
