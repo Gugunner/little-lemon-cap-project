@@ -1,4 +1,4 @@
-@import url("../colors.css");
+@import url("colors.css");
 
 @media (width < 768px) {
   .hero-section {
@@ -16,11 +16,11 @@
     grid-area: cell-a0;
   }
 
-  .reserve-appeal-action {
+  .appeal-action {
     grid-area: cell-b0;
   }
 
-  .restaurant-image {
+  .hero-image {
     grid-area: cell-b1;
     width: 100%;
   }
@@ -42,11 +42,11 @@
     grid-area: cell-a0;
   }
 
-  .reserve-appeal-action {
+  .appeal-action {
     grid-area: cell-b0;
   }
 
-  .restaurant-image {
+  .hero-image {
     grid-area: cell-a2;
     width: 100%;
     max-width: 368px;
@@ -70,13 +70,13 @@
     grid-area: cell-a0;
   }
 
-  .restaurant-image {
+  .hero-image {
     margin-top: 44px;
     grid-area: cell-a2;
     width: 392px;
   }
 
-  .reserve-appeal-action {
+  .appeal-action {
     grid-area: cell-b0;
   }
 }
@@ -89,7 +89,7 @@
   color: white;
 }
 
-.restaurant-image {
+.hero-image {
   border-radius: 8px;
 }
 

@@ -7,8 +7,8 @@
     height: 120px;
   }
 
-  .hero-section {
-    height: 320px;
+  .landing-hero-section {
+    height: 336px;
   }
 
   .highlights {
@@ -33,7 +33,7 @@
     height: 120px;
   }
 
-  .hero-section {
+  .landing-hero-section {
     height: 368px;
   }
 
@@ -59,7 +59,7 @@
     height: 120px;
   }
 
-  .hero-section {
+  .landing-hero-section {
     height: 440px;
   }
 
@@ -84,7 +84,7 @@
   width: 100%;
 }
 
-.hero-section {
+.landing-hero-section {
   width: 100%;
 }
 
