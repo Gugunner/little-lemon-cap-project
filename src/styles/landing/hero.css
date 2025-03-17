@@ -1,78 +1,115 @@
 @import url("../colors.css");
 
 @media (width < 768px) {
-  .hero-button {
-    margin-top: 20px;
-    margin-bottom: 32px;
+  .hero-section {
+    background-color: var(--primary-1);
   }
 
-  .hero-img {
-    width: 37.5%;
-    max-width: 120px;
+  .hero-grid {
+    grid-template-columns: minmax(169px, 1fr) minmax(120px, 0.35fr);
+    grid-template-areas:
+      "cell-a0 cell-a0"
+      "cell-b0 cell-b1";
   }
 
-  .hero-story {
-    margin-right: 0.25rem;
-    margin-top: 0;
+  .titles {
+    grid-area: cell-a0;
+  }
+
+  .reserve-appeal-action {
+    grid-area: cell-b0;
+  }
+
+  .restaurant-image {
+    grid-area: cell-b1;
+    width: 100%;
   }
 }
 
 @media (768px <= width < 1200px) {
-  .hero-button {
-    margin-top: 12px;
+  .hero-section {
+    background-color: var(--primary-1);
   }
 
-  .hero-img {
-    width: 43.88%;
-    align-self: self-start;
-    margin-top: 36px;
-    max-width: 280px;
+  .hero-grid {
+    grid-template-columns: 1fr 88px 0.8fr;
+    grid-template-areas:
+      "cell-a0 . cell-a2"
+      "cell-b0 . cell-a2";
   }
 
-  .hero-story {
-    margin-top: 12px;
-    margin-right: 24.88%;
+  .titles {
+    grid-area: cell-a0;
+  }
+
+  .reserve-appeal-action {
+    grid-area: cell-b0;
+  }
+
+  .restaurant-image {
+    grid-area: cell-a2;
+    width: 100%;
+    max-width: 368px;
   }
 }
 
 @media (width >= 1200px) {
-  .hero-button {
-    margin-top: 12px;
-    margin-bottom: 32px;
+  .hero-section {
+    /* background-color: var(--primary-1); */
+    background: linear-gradient(var(--primary-1) 81.2%, white 18.8%);
   }
 
-  .hero-img {
-    width: 46.12%;
-    max-width: 393px;
-    margin-top: 44px; /* Takes into consideration size of image and then overflow in y direction */
+  .hero-grid {
+    grid-template-columns: 1fr 0.5fr 1fr;
+    grid-template-areas:
+      "cell-a0 . cell-a2"
+      "cell-b0 . cell-a2";
   }
 
-  .hero-story {
-    margin-top: 12px;
-    margin-right: 24.88%;
+  .titles {
+    grid-area: cell-a0;
+  }
+
+  .restaurant-image {
+    margin-top: 44px;
+    grid-area: cell-a2;
+    width: 392px;
+  }
+
+  .reserve-appeal-action {
+    grid-area: cell-b0;
   }
 }
 
-h1 {
+.titles h1 {
   color: var(--primary-2);
-  white-space: nowrap;
 }
 
-h2 {
+.titles h2 {
   color: white;
 }
 
-.hero-story {
+.restaurant-image {
+  border-radius: 8px;
+}
+
+.hero-grid {
+  height: 100%;
+  grid-template-rows: auto 1fr auto;
+}
+
+.hero-section p {
   color: white;
 }
 
-.hero-content {
-  height: 354px;
-  background-color: var(--primary-1);
+.hero-section button {
+  margin-top: 16px;
 }
 
-.hero-img {
-  border-radius: 16px;
+.hero-section h1 {
+  line-height: 3rem; /* Removes any top space of element */
 }
 
-
+.titles {
+  margin-top: 16px;
+}

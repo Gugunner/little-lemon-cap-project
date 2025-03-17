@@ -1,84 +1,66 @@
 import React from "react";
-import "../../styles/landing/hero.css";
 
 import { Link } from "react-router";
-import { HorizontalLayout } from "../HorizontalLayout.js";
-
 import { reserveTablePath } from "../../Constants/paths.js";
+import { md } from "../../Constants/sizes.js";
+import useWindowDimensions from "../../Hooks/useWindowDimensions.js";
+import "../../styles/landing/hero.css";
 
 function RestaurantTitles() {
   return (
-    <>
+    <div className="titles">
       <h1 className="display-title">Little Lemon</h1>
       <h2 className="sub-title">Chicago</h2>
-    </>
+    </div>
   );
 }
 
 function RestaurantDescription() {
   return (
-    <p className="lead-text hero-story">
+    <p className="lead-text">
       We are a family owned mediterranean restaurant focused on traditional
       recipes served with a modern twist.
     </p>
   );
 }
 
-function RestaurantAppealAction() {
+function ReserveTableButton() {
   return (
-    <>
+    <button className="card-title hero-button">
+      <Link to={reserveTablePath}>Reserve a Table</Link>
+    </button>
+  );
+}
+
+function RestaurantAppealReserveAction() {
+  return (
+    <div className="reserve-appeal-action">
       <RestaurantDescription />
-      <button className="card-title hero-button">
-        <Link to={reserveTablePath}>Reserve a Table</Link>
-      </button>
-    </>
+      <ReserveTableButton />
+    </div>
   );
 }
 
 function RestaurantImage() {
+  const dimensions = useWindowDimensions();
   return (
     <img
-      className="hero-img"
+      className={`restaurant-image justify-self-end ${
+        dimensions.width >= md && "self-center"
+      }`}
       src="/assets/images/restaurant_food.png"
       alt="A waiter carrying different kind of bruschettas"
     />
   );
 }
 
-function DesktopHeroSection() {
-  return (
-    <div className="flex-row">
-      <div className="start-items self-start">
-        <RestaurantTitles />
-        <RestaurantAppealAction />
-      </div>
-      <RestaurantImage />
-    </div>
-  );
-}
-
-function MobileHeroSection() {
-  return (
-    <div className="outline">
-      <RestaurantTitles />
-      <div className="flex-row start-items">
-        <div className="flex-column justify-between">
-          <RestaurantAppealAction />
-        </div>
-        <RestaurantImage />
-      </div>
-    </div>
-  );
-}
-
 export default function HeroSection() {
   return (
-    <section className="hero-section">
-      <div className="hero-content constrain-content">
-        <HorizontalLayout>
-          <DesktopHeroSection />
-          <MobileHeroSection />
-        </HorizontalLayout>
+    <section className="hero-section constrain-content">
+      <div className="grid hero-grid">
+        <RestaurantTitles />
+        <RestaurantAppealReserveAction />
+        <RestaurantImage />
       </div>
     </section>
   );
