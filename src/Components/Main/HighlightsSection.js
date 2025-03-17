@@ -7,7 +7,7 @@ import { HorizontalLayout } from "../HorizontalLayout";
 function SpecialDish() {
   return (
     <div
-      className="special-dish-container border-top-radius-8 outline grid special-dish-grid"
+      className="special-dish-container border-top-radius-8 grid special-dish-grid"
       onClick={() => console.log("Clicked")}
       onKeyUp={(e) =>
         (e.key === "Enter" || e.key === " ") && console.log("Pressed")
@@ -113,8 +113,8 @@ function MobileHighlightsSection() {
 
 export default function HighlightsSection() {
   return (
-    <section className="highlights outline">
-      <div className="constrain-content outline full-height">
+    <section className="highlights">
+      <div className="constrain-content full-height">
         <HorizontalLayout>
           <DesktopHighlightsSection />
           <MobileHighlightsSection />

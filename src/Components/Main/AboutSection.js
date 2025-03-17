@@ -1,10 +1,10 @@
 import React from "react";
-import "../../styles/about.css";
+import "../../styles/main/about.css";
 
 export default function AboutSection() {
   return (
-    <section className="about outline">
-      <div className="constrain-content outline full-height vertical-padding-32">
+    <section className="about">
+      <div className="constrain-content full-height vertical-padding-32">
         <div className="grid about-grid full-height">
           <div className="titles">
             <h1 className="display-title">Little Lemon</h1>

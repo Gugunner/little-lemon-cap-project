@@ -4,7 +4,7 @@ import { homePath, reserveTablePath } from "../Constants/paths";
 
 export default function Nav() {
   return (
-    <nav className="outline">
+    <nav>
       <ul>
         <li>
           <NavLink to={homePath} className="special-section">

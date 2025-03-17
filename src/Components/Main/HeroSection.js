@@ -1,5 +1,5 @@
 import React from "react";
-import "../../styles/hero.css";
+import "../../styles/main/hero.css";
 
 import { Link } from "react-router";
 import { HorizontalLayout } from "../HorizontalLayout.js";
@@ -47,14 +47,12 @@ function RestaurantImage() {
 
 function DesktopHeroSection() {
   return (
-    <div className="outline">
-      <div className="flex-row">
-        <div className="start-items self-start">
-          <RestaurantTitles />
-          <RestaurantAppealAction />
-        </div>
-        <RestaurantImage />
+    <div className="flex-row">
+      <div className="start-items self-start">
+        <RestaurantTitles />
+        <RestaurantAppealAction />
       </div>
+      <RestaurantImage />
     </div>
   );
 }
@@ -75,7 +73,7 @@ function MobileHeroSection() {
 
 export default function HeroSection() {
   return (
-    <section className="hero-section outline">
+    <section className="hero-section">
       <div className="hero-content constrain-content">
         <HorizontalLayout>
           <DesktopHeroSection />
