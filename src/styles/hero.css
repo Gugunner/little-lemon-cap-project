@@ -1,12 +1,11 @@
-@import url("../colors.css");
-@import url("../dimensions.css");
+@import url("colors.css");
 
 @media (width < 768px) {
-  .reserve-hero-section {
+  .hero-section {
     background-color: var(--primary-1);
   }
 
-  .reserve-hero-grid {
+  .hero-grid {
     grid-template-columns: minmax(169px, 1fr) minmax(120px, 0.35fr);
     grid-template-areas:
       "cell-a0 cell-a0"
@@ -17,22 +16,22 @@
     grid-area: cell-a0;
   }
 
-  .order-appeal-action {
+  .appeal-action {
     grid-area: cell-b0;
   }
 
-  .restaurant-image {
+  .hero-image {
     grid-area: cell-b1;
     width: 100%;
   }
 }
 
 @media (768px <= width < 1200px) {
-  .reserve-hero-section {
+  .hero-section {
     background-color: var(--primary-1);
   }
 
-  .reserve-hero-grid {
+  .hero-grid {
     grid-template-columns: 1fr 88px 0.8fr;
     grid-template-areas:
       "cell-a0 . cell-a2"
@@ -43,11 +42,11 @@
     grid-area: cell-a0;
   }
 
-  .order-appeal-action {
+  .appeal-action {
     grid-area: cell-b0;
   }
 
-  .restaurant-image {
+  .hero-image {
     grid-area: cell-a2;
     width: 100%;
     max-width: 368px;
@@ -55,12 +54,12 @@
 }
 
 @media (width >= 1200px) {
-  .reserve-hero-section {
+  .hero-section {
     /* background-color: var(--primary-1); */
     background: linear-gradient(var(--primary-1) 81.2%, white 18.8%);
   }
 
-  .reserve-hero-grid {
+  .hero-grid {
     grid-template-columns: 1fr 0.5fr 1fr;
     grid-template-areas:
       "cell-a0 . cell-a2"
@@ -71,35 +70,43 @@
     grid-area: cell-a0;
   }
 
-  .restaurant-image {
+  .hero-image {
     margin-top: 44px;
     grid-area: cell-a2;
     width: 392px;
   }
 
-  .order-appeal-action {
+  .appeal-action {
     grid-area: cell-b0;
   }
 }
 
-.restaurant-image {
+.titles h1 {
+  color: var(--primary-2);
+}
+
+.titles h2 {
+  color: white;
+}
+
+.hero-image {
   border-radius: 8px;
 }
 
-.reserve-hero-grid {
+.hero-grid {
   height: 100%;
   grid-template-rows: auto 1fr auto;
 }
 
-.reserve-hero-section p {
+.hero-section p {
   color: white;
 }
 
-.reserve-hero-section button {
+.hero-section button {
   margin-top: 16px;
 }
 
-.reserve-hero-section h1 {
+.hero-section h1 {
   line-height: 3rem; /* Removes any top space of element */
 }
 
