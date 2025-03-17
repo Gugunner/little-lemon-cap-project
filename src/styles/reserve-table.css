@@ -1,0 +1,97 @@
+@import url("fonts.css");
+@import url("colors.css");
+
+@media (width < 768px) {
+  .navigation-bar {
+    height: 120px;
+  }
+
+  .reserve-hero-section {
+    height: 320px;
+  }
+
+  .custom-select-section {
+    height: 264px;
+  }
+
+  .time-window-section {
+    height: 172px;
+  }
+
+  .footer-navigation {
+    height: 384px;
+  }
+}
+
+@media (768px <= width < 1200px) {
+  .navigation-bar {
+    height: 120px;
+  }
+
+  .reserve-hero-section {
+    height: 368px;
+  }
+
+  .custom-select-section {
+    height: 128px;
+  }
+
+  .time-window-section {
+    height: 124px;
+  }
+
+  .footer-navigation {
+    height: 332px;
+  }
+}
+
+@media (width >= 1200px) {
+  .navigation-bar {
+    height: 120px;
+  }
+
+  .reserve-hero-section {
+    height: 440px;
+  }
+
+  .custom-select-section {
+    height: 148px;
+  }
+
+  .time-window-section {
+    height: 132px;
+  }
+
+  .footer-navigation {
+    height: 332px;
+  }
+}
+
+.navigation-bar {
+  background-color: #ececec;
+  width: 100%;
+}
+
+.reserve-hero-section {
+  /* background-color: #e0e0e0; */
+  width: 100%;
+}
+
+.custom-select-section {
+  background-color: #cecece;
+  width: 100%;
+}
+
+.time-window-section {
+  background-color: #b0b0b0;
+  width: 100%;
+}
+
+.footer-navigation {
+  background-color: #8f8f8f;
+  width: 100%;
+}
+
+h1 {
+  white-space: wrap;
+}
