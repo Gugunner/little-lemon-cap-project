@@ -1,4 +1,4 @@
-@import url("colors.css");
+@import url("../colors.css");
 
 @media (width < 768px) {
   .hero-button {
@@ -75,7 +75,4 @@ h2 {
   border-radius: 16px;
 }
 
-.hero-button > a {
-  text-decoration: none;
-  color: black;
-}
+
