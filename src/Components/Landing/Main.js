@@ -6,7 +6,7 @@ import TestimonialsSection from "./TestimonialsSection";
 
 export default function Main() {
   return (
-    <main className="outline">
+    <main>
       <HeroSection />
       <HighlightsSection />
       <TestimonialsSection />

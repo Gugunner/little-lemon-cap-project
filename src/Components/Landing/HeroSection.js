@@ -1,5 +1,5 @@
 import React from "react";
-import "../../styles/main/hero.css";
+import "../../styles/landing/hero.css";
 
 import { Link } from "react-router";
 import { HorizontalLayout } from "../HorizontalLayout.js";
