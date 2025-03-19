@@ -10,12 +10,16 @@
     height: 320px;
   }
 
-  .custom-select-section {
+  .custom-select-subsection {
     height: 264px;
   }
 
-  .time-window-section {
+  .time-window-subsection {
     height: 172px;
+  }
+
+  .reservation-details-subsection {
+    height: 328px;
   }
 
   .footer-navigation {
@@ -32,12 +36,16 @@
     height: 368px;
   }
 
-  .custom-select-section {
+  .custom-select-subsection {
     height: 128px;
   }
 
-  .time-window-section {
+  .time-window-subsection {
     height: 124px;
+  }
+
+  .reservation-details-subsection {
+    height: 238px;
   }
 
   .footer-navigation {
@@ -54,12 +62,16 @@
     height: 440px;
   }
 
-  .custom-select-section {
+  .custom-select-subsection {
     height: 148px;
   }
 
-  .time-window-section {
+  .time-window-subsection {
     height: 132px;
+  }
+
+  .reservation-details-subsection {
+    height: 238px;
   }
 
   .footer-navigation {
@@ -77,13 +89,22 @@
   width: 100%;
 }
 
-.custom-select-section {
-  background-color: #cecece;
+.reservation-section {
+  padding: 1.25rem 1rem;
+}
+
+.custom-select-subsection {
+  /* background-color: #cecece; */
   width: 100%;
 }
 
-.time-window-section {
+.time-window-subsection {
   background-color: #b0b0b0;
+  width: 100%;
+}
+
+.reservation-details-subsection {
+  background-color: #e0e0e0;
   width: 100%;
 }
 
@@ -94,4 +115,10 @@
 
 h1 {
   white-space: wrap;
+}
+
+.reservation-section select {
+  width: 100%;
+  height: 48px;
+  border-radius: 8px;
 }
