@@ -9,7 +9,7 @@
       "/^padding|^gap/": ["rem", "%"],
       "/^grid-template-columns|^grid-template-rows/": ["fr", "px", "."]
     },
-    "unit-allowed-list": ["%", "deg", "px", "rem", "ms", "vh", "vw", "fr"],
+    "unit-allowed-list": ["%", "deg", "px", "rem", "ms", "vh", "vw", "fr", "s"],
     "alpha-value-notation": "number",
     "selector-type-case": "lower",
     "comment-no-empty": true,
