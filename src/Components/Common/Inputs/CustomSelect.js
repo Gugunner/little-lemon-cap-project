@@ -24,7 +24,6 @@ export default function CustomSelect({
       <select
         className={`${"paragraph-text"} ${className}`}
         name={name}
-        defaultValue={defaultOption.value}
         value={selectValue}
         onChange={handleOnChange}
       >
