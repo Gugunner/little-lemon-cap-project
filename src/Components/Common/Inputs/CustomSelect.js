@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import "../../../styles/fonts.css";
 import "../../../styles/inputs/custom-select.css";
+import "../../../styles/inputs/input.css";
 
 export default function CustomSelect({
   name,
@@ -19,10 +20,10 @@ export default function CustomSelect({
   }
 
   return (
-    <div className="select-wrapper">
+    <div className="input-wrapper">
       {icon}
       <select
-        className={`${"paragraph-text"} ${className}`}
+        className={`${"paragraph-text custom-input"} ${className}`}
         name={name}
         value={selectValue}
         onChange={handleOnChange}

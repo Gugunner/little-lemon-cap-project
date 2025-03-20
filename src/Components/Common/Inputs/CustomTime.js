@@ -33,11 +33,11 @@ export default function CustomTime({ name, value, onChange, min, max, icon }) {
 
   console.log("Value", value);
   return (
-    <div className="time-wrapper">
+    <div className="input-wrapper">
       {icon}
       <input
         name={name}
-        className="paragraph-text"
+        className="paragraph-text custom-input"
         type="time"
         ref={ref}
         value={value}
