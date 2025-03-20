@@ -241,3 +241,10 @@ button {
   color: black;
   background-color: var(--primary-2);
 }
+
+button:disabled {
+  background-color: var(--primary-2);
+  /* stylelint-disable-next-line color-function-notation -- requires opacity */
+  color: rgba(0, 0, 0, 0.7);
+  opacity: 0.7;
+}
