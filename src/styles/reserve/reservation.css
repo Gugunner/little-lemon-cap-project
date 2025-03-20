@@ -1,11 +1,77 @@
 @import url("../colors.css");
 @import url("../dimensions.css");
 
-/* @media (width < 768px) {} */
+@media (width < 768px) {
+  .custom-select-subsection {
+    height: 264px;
+  }
 
-/* @media (768px <= width < 1200px) {} */
+  .time-window-subsection {
+    height: 172px;
+  }
 
-/* @media (width > 1200px) {} */
+  .reservation-details-subsection {
+    height: 328px;
+  }
+
+  .custom-select-subsection-grid {
+    grid-template-columns: repeat(auto-fit, 100%);
+    gap: var(--spacing-8);
+  }
+}
+
+@media (768px <= width < 1200px) {
+  .custom-select-subsection {
+    height: 128px;
+  }
+
+  .time-window-subsection {
+    height: 124px;
+  }
+
+  .reservation-details-subsection {
+    height: 238px;
+  }
+
+  .custom-select-subsection-grid {
+    grid-template-columns: repeat(auto-fit, minmax(236px, 1fr));
+    gap: var(--spacing-8);
+  }
+}
+
+@media (width > 1200px) {
+  .custom-select-subsection {
+    height: 148px;
+  }
+
+  .time-window-subsection {
+    height: 132px;
+  }
+
+  .reservation-details-subsection {
+    height: 238px;
+  }
+
+  .custom-select-subsection-grid {
+    grid-template-columns: repeat(auto-fit, minmax(281px, 1fr));
+    gap: var(--spacing-16);
+  }
+}
+
+.custom-select-subsection {
+  /* background-color: #cecece; */
+  width: 100%;
+}
+
+.time-window-subsection {
+  background-color: #b0b0b0;
+  width: 100%;
+}
+
+.reservation-details-subsection {
+  background-color: #e0e0e0;
+  width: 100%;
+}
 
 .custom-select-subsection > hr {
   border: 1px solid var(--highlight-2);
@@ -13,4 +79,15 @@
   margin-bottom: 20px;
 }
 
+.custom-select-subsection-grid div {
+  background-color: red;
+  height: 48px;
+  width: 100%;
+}
 
+.submit-button {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}

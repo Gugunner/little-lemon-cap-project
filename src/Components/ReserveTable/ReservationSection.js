@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { useFormStatus } from "react-dom";
 import CustomSelect from "../Common/Inputs/CustomSelect";
 
 import { faClock } from "@fortawesome/free-regular-svg-icons/faClock";
@@ -33,7 +34,6 @@ function DinersSelectInput() {
 function TimeSelectInput() {
   const options = [
     { value: "", text: "Time" },
-    { value: "15", text: "15:00 pm" },
     { value: "10", text: "10:00 am" },
     { value: "11", text: "11:00 am" },
     { value: "12", text: "12:00 pm" },
@@ -60,20 +60,34 @@ function TimeSelectInput() {
 }
 
 export default function ReservationSection() {
+  const { pending } = useFormStatus();
+
+  function handleSubmit() {}
+
   return (
     <section className="reservation-section constrain-content outline">
       <form>
         <div className="custom-select-subsection outline">
           <h3 className="section-title">MAKE A RESERVATION</h3>
           <hr />
-          <DinersSelectInput />
-          <TimeSelectInput />
+          <div className="grid custom-select-subsection-grid">
+            <DinersSelectInput />
+            <div>
+              
+            </div>
+            <TimeSelectInput />
+          </div>
         </div>
-        <div className="time-window-subsection outline">
+        {/* <div className="time-window-subsection outline">
           <h1>Time Window Section</h1>
         </div>
         <div className="reservation-details-subsection outline">
           <h1>Reservation Details Section</h1>
+        </div> */}
+        <div className="submit-button">
+          <button className="card-title" type="submit" disabled={pending}>
+            {pending ? "Submit" : "Submitting"}
+          </button>
         </div>
       </form>
     </section>

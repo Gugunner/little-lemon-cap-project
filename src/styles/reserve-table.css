@@ -1,5 +1,5 @@
-@import url("fonts.css");
 @import url("colors.css");
+@import url("dimensions.css");
 
 @media (width < 768px) {
   .navigation-bar {
@@ -8,18 +8,6 @@
 
   .reserve-hero-section {
     height: 320px;
-  }
-
-  .custom-select-subsection {
-    height: 264px;
-  }
-
-  .time-window-subsection {
-    height: 172px;
-  }
-
-  .reservation-details-subsection {
-    height: 328px;
   }
 
   .footer-navigation {
@@ -36,18 +24,6 @@
     height: 368px;
   }
 
-  .custom-select-subsection {
-    height: 128px;
-  }
-
-  .time-window-subsection {
-    height: 124px;
-  }
-
-  .reservation-details-subsection {
-    height: 238px;
-  }
-
   .footer-navigation {
     height: 332px;
   }
@@ -60,18 +36,6 @@
 
   .reserve-hero-section {
     height: 440px;
-  }
-
-  .custom-select-subsection {
-    height: 148px;
-  }
-
-  .time-window-subsection {
-    height: 132px;
-  }
-
-  .reservation-details-subsection {
-    height: 238px;
   }
 
   .footer-navigation {
@@ -91,21 +55,6 @@
 
 .reservation-section {
   padding: 1.25rem 1rem;
-}
-
-.custom-select-subsection {
-  /* background-color: #cecece; */
-  width: 100%;
-}
-
-.time-window-subsection {
-  background-color: #b0b0b0;
-  width: 100%;
-}
-
-.reservation-details-subsection {
-  background-color: #e0e0e0;
-  width: 100%;
 }
 
 .footer-navigation {
