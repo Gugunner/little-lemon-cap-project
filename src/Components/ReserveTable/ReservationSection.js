@@ -15,6 +15,114 @@ import CustomTime from "../Common/Inputs/CustomTime";
 
 import { useFormik } from "formik";
 
+export default function ReservationSection() {
+  const [pending, setPending] = useState(false);
+
+  function validate(values) {
+    const errors = {};
+    if (values.diners === "6+") {
+      errors.diners = "Party of 6 or more please call the restaurant.";
+    }
+
+    const parsedTime = values.time.split(":")[0];
+    if (parseInt(parsedTime) < 9) {
+      errors.time = "The restaurant opens at 9:00 am";
+    }
+    return errors;
+  }
+
+  const formik = useFormik({
+    initialValues: {
+      diners: "",
+      date: "",
+      time: "",
+      appointedTime: "",
+    },
+    validate,
+    onSubmit: (values) => {
+      console.log("Values", values);
+      setPending(false);
+    },
+  });
+
+  return (
+    <section className="reservation-subsection constrain-content">
+      <form
+        onSubmit={async (event) => {
+          setPending(true);
+          event.preventDefault();
+          await delay(2000);
+          formik.handleSubmit(event);
+        }}
+        noValidate
+      >
+        <div className="reservation-subsection custom-select-subsection">
+          <h3 className="section-title">MAKE A RESERVATION</h3>
+          <hr />
+          <div className="grid custom-select-subsection-grid">
+            <DinersSelectInput
+              value={formik.values.diners}
+              onChangeEvent={formik.handleChange}
+              onBlur={formik.handleBlur}
+              error={formik.errors.diners}
+              touched={formik.touched.diners}
+            />
+            <DateInput
+              value={formik.values.date}
+              onChangeEvent={formik.handleChange}
+              onBlur={formik.handleBlur}
+              touched={formik.touched.date}
+            />
+            <TimeSelectInput
+              value={formik.values.time}
+              onChangeEvent={(event) => {
+                formik.setFieldValue("appointedTime", "");
+                formik.handleChange(event);
+              }}
+              onBlur={formik.handleBlur}
+              error={formik.errors.time}
+              touched={formik.touched.time}
+            />
+          </div>
+        </div>
+        {formik.values.time !== "" && (
+          <div className="time-window-subsection">
+            <h4 className="card-title">Select a time</h4>
+            <TimeWindowTagButtons
+              hourWindow={[
+                { text: "14:00 PM", unavailable: false },
+                { text: "14:15 PM", unavailable: false },
+                { text: "14:30 PM", unavailable: false },
+                { text: "14:45 PM", unavailable: true },
+                { text: "15:00 PM", unavailable: true },
+              ]}
+              onSelected={(hour) =>
+                formik.setFieldValue("appointedTime", hour.text)
+              }
+            />
+          </div>
+        )}
+        {/* <div className="reservation-details-subsection outline">
+          <h1>Reservation Details Section</h1>
+        </div> */}
+        <div className="submit-button">
+          <button
+            className="card-title"
+            type="submit"
+            disabled={
+              pending ||
+              Object.keys(formik.errors).length > 0 ||
+              !Object.keys(formik.values).every((k) => formik.values[k] !== "")
+            }
+          >
+            {pending ? "Submitting" : "Submit"}
+          </button>
+        </div>
+      </form>
+    </section>
+  );
+}
+
 function DinersSelectInput({ value, onChangeEvent, onBlur, error, touched }) {
   const options = [
     { value: "", text: "People" },
@@ -43,7 +151,7 @@ function DinersSelectInput({ value, onChangeEvent, onBlur, error, touched }) {
 }
 
 function DateInput({ value, onChangeEvent, onBlur, error, touched }) {
-  const minFormattedDate = value;
+  const minFormattedDate = new Date().toISOString().slice(0, 10);
   const maxDate = new Date();
   maxDate.setMonth(maxDate.getMonth() + 1);
   const maxFormattedDate = maxDate.toISOString().slice(0, 10);
@@ -83,93 +191,20 @@ function TimeSelectInput({ value, onChangeEvent, onBlur, error, touched }) {
   );
 }
 
-export default function ReservationSection() {
-  const [pending, setPending] = useState(false);
-
-  function validate(values) {
-    const errors = {};
-    if (values.diners === "6+") {
-      errors.diners = "Party of 6 or more please call the restaurant.";
-    }
-
-    const parsedTime = values.time.split(":")[0];
-    if (parseInt(parsedTime) < 9) {
-      errors.time = "The restaurant opens at 9:00 am";
-    }
-
-    return errors;
-  }
-
-  const formik = useFormik({
-    initialValues: {
-      diners: "",
-      date: new Date().toISOString().slice(0, 10),
-      time: "09:00",
-    },
-    validate,
-    onSubmit: (values) => {
-      console.log("Values", values);
-      setPending(false);
-    },
-  });
-
+function TimeWindowTagButtons({ hourWindow, onSelected }) {
   return (
-    <section className="reservation-section constrain-content outline">
-      <form
-        onSubmit={async (event) => {
-          setPending(true);
-          event.preventDefault();
-          await delay(2000);
-          formik.handleSubmit(event);
-        }}
-        noValidate
-      >
-        <div className="custom-select-subsection outline">
-          <h3 className="section-title">MAKE A RESERVATION</h3>
-          <hr />
-          <div className="grid custom-select-subsection-grid">
-            <DinersSelectInput
-              value={formik.values.diners}
-              onChangeEvent={formik.handleChange}
-              onBlur={formik.handleBlur}
-              error={formik.errors.diners}
-              touched={formik.touched.diners}
-            />
-            <DateInput
-              value={formik.values.date}
-              onChangeEvent={formik.handleChange}
-              onBlur={formik.handleBlur}
-              touched={formik.touched.date}
-            />
-            <TimeSelectInput
-              value={formik.values.time}
-              onChangeEvent={formik.handleChange}
-              onBlur={formik.handleBlur}
-              error={formik.errors.time}
-              touched={formik.touched.time}
-            />
-          </div>
-        </div>
-        {/* <div className="time-window-subsection outline">
-          <h1>Time Window Section</h1>
-        </div>
-        <div className="reservation-details-subsection outline">
-          <h1>Reservation Details Section</h1>
-        </div> */}
-        <div className="submit-button">
-          <button
-            className="card-title"
-            type="submit"
-            disabled={
-              pending ||
-              Object.keys(formik.errors).length > 0 ||
-              formik.values.diners === ""
-            }
-          >
-            {pending ? "Submitting" : "Submit"}
-          </button>
-        </div>
-      </form>
-    </section>
+    <div className="grid time-window-subsection-grid">
+      {(hourWindow || []).map((hour) => (
+        <button
+          type="button"
+          key={hour.text}
+          className="tag tag-button"
+          onClick={() => onSelected(hour)}
+          disabled={hour.unavailable}
+        >
+          {hour.text}
+        </button>
+      ))}
+    </div>
   );
 }
