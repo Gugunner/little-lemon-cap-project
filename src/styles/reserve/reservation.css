@@ -18,6 +18,19 @@
     grid-template-columns: repeat(auto-fit, 100%);
     gap: var(--spacing-8);
   }
+
+  .time-window-subsection-grid {
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    gap: var(--spacing-8);
+  }
+
+  .tag-button {
+    min-width: 90px;
+    height: 40px;
+    padding: 0.5rem;
+    border-radius: 8px;
+    background-color: var(--primary-2);
+  }
 }
 
 @media (768px <= width < 1200px) {
@@ -26,35 +39,61 @@
   }
 
   .time-window-subsection {
-     min-height: 124px;
+    min-height: 124px;
   }
 
   .reservation-details-subsection {
-     min-height: 238px;
+    min-height: 238px;
   }
 
   .custom-select-subsection-grid {
     grid-template-columns: repeat(auto-fit, minmax(236px, 1fr));
     gap: var(--spacing-8);
   }
+
+  .time-window-subsection-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140.8px, 1fr));
+    gap: var(--spacing-8);
+  }
+
+  .tag-button {
+    min-width: 140.8px;
+    height: 40px;
+    padding: 0.5rem 2.25rem;
+    border-radius: 8px;
+    background-color: var(--primary-2);
+  }
 }
 
 @media (width > 1200px) {
   .custom-select-subsection {
-     min-height: 148px;
+    min-height: 148px;
   }
 
   .time-window-subsection {
-     min-height: 132px;
+    min-height: 132px;
   }
 
   .reservation-details-subsection {
-     min-height: 238px;
+    min-height: 238px;
   }
 
   .custom-select-subsection-grid {
     grid-template-columns: repeat(auto-fit, minmax(281px, 1fr));
     gap: var(--spacing-16);
+  }
+
+  .time-window-subsection-grid {
+    grid-template-columns: repeat(auto-fit, minmax(165.6px, 1fr));
+    gap: var(--spacing-8);
+  }
+
+  .tag-button {
+    min-width: 165.6px;
+    height: 40px;
+    padding: 0.5rem 2.25rem;
+    border-radius: 8px;
+    background-color: var(--primary-2);
   }
 }
 
@@ -64,7 +103,7 @@
 }
 
 .time-window-subsection {
-  background-color: #b0b0b0;
+  /* background-color: #b0b0b0; */
   width: 100%;
 }
 
@@ -84,4 +123,16 @@
   width: 100%;
   display: flex;
   justify-content: center;
+}
+
+.tag-button:disabled {
+  background-color: var(--primary-2);
+  /* stylelint-disable-next-line color-function-notation -- requires opacity */
+  color: rgba(0, 0, 0, 0.7);
+  opacity: 0.7;
+  text-decoration: line-through;
+}
+
+.time-window-subsection-grid {
+  margin-top: 20px;
 }
