@@ -1,15 +1,21 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
-import { useFormStatus } from "react-dom";
+import React, { useState } from "react";
 import CustomSelect from "../Common/Inputs/CustomSelect";
 
+import { delay } from "../../utils/timer";
+
+import { faCalendarAlt } from "@fortawesome/free-regular-svg-icons/faCalendarAlt";
 import { faClock } from "@fortawesome/free-regular-svg-icons/faClock";
 import { faUser } from "@fortawesome/free-regular-svg-icons/faUser";
 
 import "../../styles/fonts.css";
 import "../../styles/reserve/reservation.css";
+import CustomDate from "../Common/Inputs/CustomDate";
+import CustomTime from "../Common/Inputs/CustomTime";
 
-function DinersSelectInput() {
+import { useFormik } from "formik";
+
+function DinersSelectInput({ value, onChangeEvent, onBlur, error, touched }) {
   const options = [
     { value: "", text: "People" },
     { value: "1", text: "One" },
@@ -22,60 +28,126 @@ function DinersSelectInput() {
   return (
     <CustomSelect
       name="diners"
-      onChange={(value) => console.log(value)}
-      icon={<FontAwesomeIcon icon={faUser} className="select-icon" />}
+      id="diners"
+      value={value}
+      onChangeEvent={onChangeEvent}
+      onBlur={onBlur}
+      icon={<FontAwesomeIcon icon={faUser} className="custom-input-icon" />}
       defaultOption={options[0]}
       options={options.slice(1)}
       className="diners-select-input"
+      error={error}
+      touched={touched}
     />
   );
 }
 
-function TimeSelectInput() {
-  const options = [
-    { value: "", text: "Time" },
-    { value: "10", text: "10:00 am" },
-    { value: "11", text: "11:00 am" },
-    { value: "12", text: "12:00 pm" },
-    { value: "13", text: "1:00 pm" },
-    { value: "14", text: "2:00 pm" },
-    { value: "15", text: "3:00 pm" },
-    { value: "16", text: "4:00 pm" },
-    { value: "17", text: "5:00 pm" },
-    { value: "18", text: "6:00 pm" },
-    { value: "19", text: "7:00 pm" },
-    { value: "20", text: "8:00 pm" },
-  ];
-
+function DateInput({ value, onChangeEvent, onBlur, error, touched }) {
+  const minFormattedDate = value;
+  const maxDate = new Date();
+  maxDate.setMonth(maxDate.getMonth() + 1);
+  const maxFormattedDate = maxDate.toISOString().slice(0, 10);
   return (
-    <CustomSelect
+    <CustomDate
+      name="date"
+      onChangeEvent={onChangeEvent}
+      onBlur={onBlur}
+      value={value}
+      min={minFormattedDate}
+      max={maxFormattedDate}
+      icon={
+        <FontAwesomeIcon icon={faCalendarAlt} className="custom-input-icon" />
+      }
+      error={error}
+      touched={touched}
+    />
+  );
+}
+
+function TimeSelectInput({ value, onChangeEvent, onBlur, error, touched }) {
+  const minValue = "09:00";
+  const maxValue = "20:00";
+  return (
+    <CustomTime
       name="time"
-      onChange={(value) => console.log(value)}
-      icon={<FontAwesomeIcon icon={faClock} className="select-icon" />}
-      defaultOption={options[0]}
-      options={options.slice(1)}
-      className="time-select-input"
+      id="time"
+      value={value}
+      onChangeEvent={onChangeEvent}
+      onBlur={onBlur}
+      min={minValue}
+      max={maxValue}
+      icon={<FontAwesomeIcon icon={faClock} className="custom-input-icon" />}
+      error={error}
+      touched={touched}
     />
   );
 }
 
 export default function ReservationSection() {
-  const { pending } = useFormStatus();
+  const [pending, setPending] = useState(false);
 
-  function handleSubmit() {}
+  function validate(values) {
+    const errors = {};
+    if (values.diners === "6+") {
+      errors.diners = "Party of 6 or more please call the restaurant.";
+    }
+
+    const parsedTime = values.time.split(":")[0];
+    if (parseInt(parsedTime) < 9) {
+      errors.time = "The restaurant opens at 9:00 am";
+    }
+
+    return errors;
+  }
+
+  const formik = useFormik({
+    initialValues: {
+      diners: "",
+      date: new Date().toISOString().slice(0, 10),
+      time: "09:00",
+    },
+    validate,
+    onSubmit: (values) => {
+      console.log("Values", values);
+      setPending(false);
+    },
+  });
 
   return (
     <section className="reservation-section constrain-content outline">
-      <form>
+      <form
+        onSubmit={async (event) => {
+          setPending(true);
+          event.preventDefault();
+          await delay(2000);
+          formik.handleSubmit(event);
+        }}
+        noValidate
+      >
         <div className="custom-select-subsection outline">
           <h3 className="section-title">MAKE A RESERVATION</h3>
           <hr />
           <div className="grid custom-select-subsection-grid">
-            <DinersSelectInput />
-            <div>
-              
-            </div>
-            <TimeSelectInput />
+            <DinersSelectInput
+              value={formik.values.diners}
+              onChangeEvent={formik.handleChange}
+              onBlur={formik.handleBlur}
+              error={formik.errors.diners}
+              touched={formik.touched.diners}
+            />
+            <DateInput
+              value={formik.values.date}
+              onChangeEvent={formik.handleChange}
+              onBlur={formik.handleBlur}
+              touched={formik.touched.date}
+            />
+            <TimeSelectInput
+              value={formik.values.time}
+              onChangeEvent={formik.handleChange}
+              onBlur={formik.handleBlur}
+              error={formik.errors.time}
+              touched={formik.touched.time}
+            />
           </div>
         </div>
         {/* <div className="time-window-subsection outline">
@@ -85,8 +157,16 @@ export default function ReservationSection() {
           <h1>Reservation Details Section</h1>
         </div> */}
         <div className="submit-button">
-          <button className="card-title" type="submit" disabled={pending}>
-            {pending ? "Submit" : "Submitting"}
+          <button
+            className="card-title"
+            type="submit"
+            disabled={
+              pending ||
+              Object.keys(formik.errors).length > 0 ||
+              formik.values.diners === ""
+            }
+          >
+            {pending ? "Submitting" : "Submit"}
           </button>
         </div>
       </form>
