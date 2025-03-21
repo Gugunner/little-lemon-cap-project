@@ -1,4 +1,9 @@
 @import url("../colors.css");
+@import url("../dimensions.css");
+
+.input-container-grid {
+  gap: 0;
+}
 
 .input-wrapper {
   height: 48px;
@@ -52,4 +57,15 @@
   transform: translateY(-50%);
   color: var(--primary-1);
   pointer-events: none;
+}
+
+.input-error {
+  font-family: "Markazi Text", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1rem;
+  color: var(--secondary-1);
+  padding-left: 1rem;
+  margin-top: var(--spacing-4);
 }
