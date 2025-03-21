@@ -65,9 +65,3 @@
 h1 {
   white-space: wrap;
 }
-
-.reservation-section select {
-  width: 100%;
-  height: 48px;
-  border-radius: 8px;
-}

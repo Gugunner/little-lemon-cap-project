@@ -3,15 +3,15 @@
 
 @media (width < 768px) {
   .custom-select-subsection {
-    height: 264px;
+    min-height: 264px;
   }
 
   .time-window-subsection {
-    height: 172px;
+    min-height: 172px;
   }
 
   .reservation-details-subsection {
-    height: 328px;
+    min-height: 328px;
   }
 
   .custom-select-subsection-grid {
@@ -22,15 +22,15 @@
 
 @media (768px <= width < 1200px) {
   .custom-select-subsection {
-    height: 128px;
+    min-height: 128px;
   }
 
   .time-window-subsection {
-    height: 124px;
+     min-height: 124px;
   }
 
   .reservation-details-subsection {
-    height: 238px;
+     min-height: 238px;
   }
 
   .custom-select-subsection-grid {
@@ -41,15 +41,15 @@
 
 @media (width > 1200px) {
   .custom-select-subsection {
-    height: 148px;
+     min-height: 148px;
   }
 
   .time-window-subsection {
-    height: 132px;
+     min-height: 132px;
   }
 
   .reservation-details-subsection {
-    height: 238px;
+     min-height: 238px;
   }
 
   .custom-select-subsection-grid {
@@ -77,12 +77,6 @@
   border: 1px solid var(--highlight-2);
   margin-top: 20px;
   margin-bottom: 20px;
-}
-
-.custom-select-subsection-grid div {
-  background-color: red;
-  height: 48px;
-  width: 100%;
 }
 
 .submit-button {
