@@ -3,7 +3,18 @@ import React, { useRef } from "react";
 import "../../../styles/fonts.css";
 import "../../../styles/inputs/custom-time.css";
 
-export default function CustomTime({ name, value, onChange, min, max, icon }) {
+export default function CustomTime({
+  name,
+  id,
+  value,
+  onChangeEvent,
+  onBlur,
+  min,
+  max,
+  icon,
+  error,
+  touched,
+}) {
   const ref = useRef(null);
 
   function handleOpenPicker() {
@@ -28,25 +39,29 @@ export default function CustomTime({ name, value, onChange, min, max, icon }) {
   }
 
   function handleOnChage(event) {
-    onChange(event.target.value);
+    onChangeEvent(event);
   }
 
-  console.log("Value", value);
   return (
-    <div className="input-wrapper">
-      {icon}
-      <input
-        name={name}
-        className="paragraph-text custom-input"
-        type="time"
-        ref={ref}
-        value={value}
-        onChange={handleOnChage}
-        onClick={handleOpenPicker}
-        onKeyDown={handleKeyDown}
-        min={min}
-        max={max}
-      />
+    <div className="grid input-container-grid">
+      <div className="input-wrapper">
+        {icon}
+        <input
+          name={name}
+          id={id}
+          className="paragraph-text custom-input"
+          type="time"
+          ref={ref}
+          value={value}
+          onChange={handleOnChage}
+          onBlur={onBlur}
+          onClick={handleOpenPicker}
+          onKeyDown={handleKeyDown}
+          min={min}
+          max={max}
+        />
+      </div>
+      {touched && error && <p className="input-error">{error}</p>}
     </div>
   );
 }
