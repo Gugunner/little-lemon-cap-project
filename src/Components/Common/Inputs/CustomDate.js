@@ -6,11 +6,15 @@ import "../../../styles/inputs/input.css";
 
 export default function CustomDate({
   name,
-  onChange,
+  id,
+  onChangeEvent,
+  onBlur,
   value,
-  minDate,
-  maxDate,
+  min,
+  max,
   icon,
+  error,
+  touched,
 }) {
   const ref = useRef(null);
 
@@ -36,27 +40,29 @@ export default function CustomDate({
   }
 
   function handleOnChange(event) {
-    onChange(event.target.value);
+    onChangeEvent(event);
   }
 
-  const curFormattedDate = value.toISOString().slice(0, 10);
-  const minFormattedDate = (minDate || value).toISOString().slice(0, 10);
-  const maxFormattedDate = maxDate.toISOString().slice(0, 10);
   return (
-    <div className="input-wrapper">
-      {icon}
-      <input
-        name={name}
-        className="paragraph-text custom-input"
-        type="date"
-        ref={ref}
-        value={curFormattedDate}
-        onChange={handleOnChange}
-        onClick={handleOpenPicker}
-        onKeyDown={handleKeyDown}
-        min={minFormattedDate}
-        max={maxFormattedDate}
-      />
+    <div className="grid input-container-grid">
+      <div className="input-wrapper">
+        {icon}
+        <input
+          name={name}
+          id={id || name}
+          className="paragraph-text custom-input"
+          type="date"
+          ref={ref}
+          value={value}
+          onChange={handleOnChange}
+          onBlur={onBlur}
+          onClick={handleOpenPicker}
+          onKeyDown={handleKeyDown}
+          min={min}
+          max={max}
+        />
+      </div>
+      {touched && error && <p className="input-error">{error}</p>}
     </div>
   );
 }
