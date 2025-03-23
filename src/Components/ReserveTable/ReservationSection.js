@@ -24,9 +24,19 @@ export default function ReservationSection() {
       errors.diners = "Party of 6 or more please call the restaurant.";
     }
 
-    const parsedTime = values.time.split(":")[0];
-    if (parseInt(parsedTime) < 9) {
+    const splitTIme = values.time.split(":");
+    const parsedHour = parseInt(splitTIme[0]);
+    const parsedMinute = parseInt(splitTIme[1]) / 100;
+    const parsedTime = parsedHour + parsedMinute;
+    const time = parsedTime !== 0 ? parsedTime : 24;
+
+    if (0 < time && time < 9) {
       errors.time = "The restaurant opens at 9:00 am";
+    } else if (20 < time && time < 21) {
+      errors.time =
+        "The restaurant does no accept reservations later than 20:00 pm";
+    } else if (21 <= time && time <= 24) {
+      errors.time = "The restaurant closes at 21:00 pm";
     }
     return errors;
   }
@@ -62,20 +72,20 @@ export default function ReservationSection() {
           <div className="grid custom-select-subsection-grid">
             <DinersSelectInput
               value={formik.values.diners}
-              onChangeEvent={formik.handleChange}
+              onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               error={formik.errors.diners}
               touched={formik.touched.diners}
             />
             <DateInput
               value={formik.values.date}
-              onChangeEvent={formik.handleChange}
+              onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               touched={formik.touched.date}
             />
             <TimeSelectInput
               value={formik.values.time}
-              onChangeEvent={(event) => {
+              onChange={(event) => {
                 formik.setFieldValue("appointedTime", "");
                 formik.handleChange(event);
               }}
@@ -123,7 +133,7 @@ export default function ReservationSection() {
   );
 }
 
-function DinersSelectInput({ value, onChangeEvent, onBlur, error, touched }) {
+function DinersSelectInput({ value, onChange, onBlur, error, touched }) {
   const options = [
     { value: "", text: "People" },
     { value: "1", text: "One" },
@@ -138,11 +148,10 @@ function DinersSelectInput({ value, onChangeEvent, onBlur, error, touched }) {
       name="diners"
       id="diners"
       value={value}
-      onChangeEvent={onChangeEvent}
+      onChange={onChange}
       onBlur={onBlur}
       icon={<FontAwesomeIcon icon={faUser} className="custom-input-icon" />}
-      defaultOption={options[0]}
-      options={options.slice(1)}
+      options={options}
       className="diners-select-input"
       error={error}
       touched={touched}
@@ -150,7 +159,7 @@ function DinersSelectInput({ value, onChangeEvent, onBlur, error, touched }) {
   );
 }
 
-function DateInput({ value, onChangeEvent, onBlur, error, touched }) {
+function DateInput({ value, onChange, onBlur, error, touched }) {
   const minFormattedDate = new Date().toISOString().slice(0, 10);
   const maxDate = new Date();
   maxDate.setMonth(maxDate.getMonth() + 1);
@@ -158,7 +167,7 @@ function DateInput({ value, onChangeEvent, onBlur, error, touched }) {
   return (
     <CustomDate
       name="date"
-      onChangeEvent={onChangeEvent}
+      onChange={onChange}
       onBlur={onBlur}
       value={value}
       min={minFormattedDate}
@@ -172,7 +181,7 @@ function DateInput({ value, onChangeEvent, onBlur, error, touched }) {
   );
 }
 
-function TimeSelectInput({ value, onChangeEvent, onBlur, error, touched }) {
+function TimeSelectInput({ value, onChange, onBlur, error, touched }) {
   const minValue = "09:00";
   const maxValue = "20:00";
   return (
@@ -180,7 +189,7 @@ function TimeSelectInput({ value, onChangeEvent, onBlur, error, touched }) {
       name="time"
       id="time"
       value={value}
-      onChangeEvent={onChangeEvent}
+      onChange={onChange}
       onBlur={onBlur}
       min={minValue}
       max={maxValue}
