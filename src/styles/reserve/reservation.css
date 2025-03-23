@@ -79,8 +79,8 @@
   }
 
   .custom-select-subsection-grid {
-    grid-template-columns: repeat(auto-fit, minmax(281px, 1fr));
-    gap: var(--spacing-16);
+    grid-template-columns: repeat(auto-fit, minmax(236px, 1fr));
+    gap: var(--spacing-8);
   }
 
   .time-window-subsection-grid {
