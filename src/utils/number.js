@@ -1,7 +1,6 @@
-/** Checks if the decimal part reaches or exceeds a specific value threshold.
- * @constructor
+/** Checks if the fractional part of a number reaches or exceeds a specific value threshold.
  * @param {number} decimal - The decimal value that is evaluated.
- * @param {number=} [threshold=0.5] threshold - A value between 0 and 1 by default is 0.5
+ * @param {number} [threshold=0.5] threshold - A value between 0 and 1 by default is 0.5
  * @returns {boolean} - Whether there is a decimal value greater or equal to the threshold or not.
  */
 export const isAboveFractionalThreshold = (decimal, threshold = 0.5) => {
@@ -9,8 +8,7 @@ export const isAboveFractionalThreshold = (decimal, threshold = 0.5) => {
   return fraction >= threshold ? true : false;
 };
 
-/** The value that comes before the period or comma in a number
- * @constructor
+/** The value that comes before the period or comma in a float number
  * @param {number} decimal - The decimal value that is evaluated.
  * @returns {number} - The integer part of the value.
  */

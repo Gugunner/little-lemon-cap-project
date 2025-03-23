@@ -5,9 +5,8 @@ import { md } from "../Constants/sizes.js";
 import useWindowDimensions from "../Hooks/useWindowDimensions.js";
 
 /**A custom React Component that arranges layout based on the breakpoints provided
- * @constructor
- * @param {ReactNode[]} children - The different children that are rendered based on the breakpoint. Order them from the biggest breakpoint to the smallest breakpoint,
- * must always have one more child than the number of breakpoints.
+ * @param {ReactNode[]} children - The different children that are rendered based on the breakpoint. Order them from the biggest breakpoint to the smallest breakpoint
+ * (must always have one more child than the number of breakpoints).
  * @param {number[]} breakpoints - All the breakpoints that can be applied to the layout, will be copied and sorted in descending order.
  * @returns {ReactNode} - The react element chosen based on the breakpoint.
  */
@@ -20,7 +19,9 @@ export function HorizontalLayout({ children, breakpoints }) {
       "Layout componen expects at least two children but received:",
       children
     );
-    //TODO: Replace with an Error Component
+    /**
+     * @todo Replace with an Error Component
+     */
     return (
       <div>
         <h1>Error Component</h1>
@@ -34,7 +35,9 @@ export function HorizontalLayout({ children, breakpoints }) {
       console.error(
         "There must be at least one more children than breakpoint for this Layout component to work"
       );
-      //TODO: Replace with an Error Component
+      /**
+       * @todo Replace with an Error Component
+       */
       return (
         <div>
           <h1>Error Component</h1>
