@@ -1,11 +1,17 @@
 import { object, string } from "yup";
+import { parseTime } from "./time";
 
+/**
+ * A test function that checks if the value which is a time with format "HH:MM" is valid for the form.
+ *
+ * @param {string} value - The time in a format "HH:MM".
+ * @param {TestContext<Objec>} context - The context of Yup that allows creating the errors.
+ * @returns {boolean} A flag that indicates if an error was found.
+ */
 function isValidTime(value, context) {
   if (value === "") return true;
-  const splitTIme = value.split(":");
-  const parsedHour = parseInt(splitTIme[0]);
-  const parsedMinute = parseInt(splitTIme[1]) / 100;
-  const parsedTime = parsedHour + parsedMinute;
+  const { hour, minutes } = parseTime(value);
+  const parsedTime = hour + minutes;
   const time = parsedTime !== 0 ? parsedTime : 24;
 
   if (0 < time && time < 9) {
@@ -24,6 +30,9 @@ function isValidTime(value, context) {
   return true;
 }
 
+/**
+ * The yup schema for the form.
+ */
 const formSchema = object({
   diners: string()
     .test(
