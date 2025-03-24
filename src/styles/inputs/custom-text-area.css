@@ -1,0 +1,12 @@
+.custom-text-area {
+  padding-top: 0.875rem;
+  line-height: 0.875rem;
+  min-height: 48px;
+  max-height: 128px; /* Allows vertical grow up to 8 rows for a 1rem size line */
+  width: 100%;
+  box-sizing: border-box; /* Makes padding behave correctly */
+  resize: none; /* Prevents manual grow */
+  overflow-y: auto;
+  height: auto; /* Allows height to grow */
+  display: block;
+}
