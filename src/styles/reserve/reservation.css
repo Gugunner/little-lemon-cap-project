@@ -36,11 +36,6 @@
     border-radius: 8px;
     background-color: var(--primary-2);
   }
-
-  .tag-button-selected {
-    background-color: var(--primary-1);
-    color: white;
-  }
 }
 
 @media (768px <= width < 1200px) {
@@ -142,6 +137,11 @@
   width: 100%;
   display: flex;
   justify-content: center;
+}
+
+.tag-button-selected {
+  background-color: var(--primary-1);
+  color: white;
 }
 
 .tag-button:disabled {
