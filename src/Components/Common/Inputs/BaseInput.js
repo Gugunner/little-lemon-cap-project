@@ -1,5 +1,7 @@
 import React from "react";
 
+import "../../../styles/inputs/input.css";
+
 /**
  * Renders a  container that constrains the dimensions and positions of the children, the icon and the error for an input.
  *
@@ -9,10 +11,16 @@ import React from "react";
  * @param {React.Component[]} children - All react components that are inputs to be constrained by this wrapper component.
  * @returns {React.Component} The constrained wrapped input component.
  */
-export default function BaseInput({ icon, touched, error, children }) {
+export default function BaseInput({
+  icon,
+  touched,
+  error,
+  children,
+  className,
+}) {
   return (
     <div className="grid input-container-grid">
-      <div className="input-wrapper">
+      <div className={`input-wrapper ${className}`}>
         {icon}
         {children}
       </div>
