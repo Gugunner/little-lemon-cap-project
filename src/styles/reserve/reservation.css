@@ -11,7 +11,7 @@
   }
 
   .reservation-details-subsection {
-    min-height: 328px;
+    min-height: 272px;
   }
 
   .custom-select-subsection-grid {
@@ -21,6 +21,11 @@
 
   .time-window-subsection-grid {
     grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    gap: var(--spacing-8);
+  }
+
+  .reservation-details-subsection-grid {
+    grid-template-columns: repeat(auto-fit, 100%);
     gap: var(--spacing-8);
   }
 
@@ -56,6 +61,12 @@
     gap: var(--spacing-8);
   }
 
+  .reservation-details-subsection-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: var(--spacing-8);
+  }
+
   .tag-button {
     min-width: 140.8px;
     height: 40px;
@@ -88,6 +99,12 @@
     gap: var(--spacing-8);
   }
 
+  .reservation-details-subsection-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: var(--spacing-8);
+  }
+
   .tag-button {
     min-width: 165.6px;
     height: 40px;
@@ -98,17 +115,14 @@
 }
 
 .custom-select-subsection {
-  /* background-color: #cecece; */
   width: 100%;
 }
 
 .time-window-subsection {
-  /* background-color: #b0b0b0; */
   width: 100%;
 }
 
 .reservation-details-subsection {
-  background-color: #e0e0e0;
   width: 100%;
 }
 
@@ -134,5 +148,9 @@
 }
 
 .time-window-subsection-grid {
+  margin-top: 20px;
+}
+
+.reservation-details-subsection-grid {
   margin-top: 20px;
 }
