@@ -24,7 +24,9 @@ export default function BaseInput({
         {icon}
         {children}
       </div>
-      {touched && error && <p className="input-error">{error}</p>}
+      {touched && error && (
+        <p className="input-error left-padding-16">{error}</p>
+      )}
     </div>
   );
 }
