@@ -47,7 +47,9 @@ export default function CustomTime({
       <input
         name={name}
         id={id}
-        className={`${"paragraph-text custom-input"} ${className}`}
+        className={`paragraph-text custom-input ${
+          icon && "with-icon"
+        } ${className}`}
         type="time"
         ref={ref}
         value={value}
