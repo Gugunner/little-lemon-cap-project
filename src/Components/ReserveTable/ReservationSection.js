@@ -14,35 +14,14 @@ import "../../styles/reserve/reservation.css";
 import CustomDate from "../Common/Inputs/CustomDate";
 import CustomTime from "../Common/Inputs/CustomTime";
 
+import { formSchema } from "../../utils/form";
+
 import { useFormik } from "formik";
 import CustomText from "../Common/Inputs/CustomText";
 import CustomTextArea from "../Common/Inputs/CustomTextArea";
 
 export default function ReservationSection() {
   const [pending, setPending] = useState(false);
-
-  function validate(values) {
-    const errors = {};
-    if (values.diners === "6+") {
-      errors.diners = "Party of 6 or more please call the restaurant.";
-    }
-
-    const splitTIme = values.time.split(":");
-    const parsedHour = parseInt(splitTIme[0]);
-    const parsedMinute = parseInt(splitTIme[1]) / 100;
-    const parsedTime = parsedHour + parsedMinute;
-    const time = parsedTime !== 0 ? parsedTime : 24;
-
-    if (0 < time && time < 9) {
-      errors.time = "The restaurant opens at 9:00 am";
-    } else if (20 < time && time < 21) {
-      errors.time =
-        "The restaurant does no accept reservations later than 20:00 pm";
-    } else if (21 <= time && time <= 24) {
-      errors.time = "The restaurant closes at 21:00 pm";
-    }
-    return errors;
-  }
 
   const formik = useFormik({
     initialValues: {
@@ -55,7 +34,7 @@ export default function ReservationSection() {
       occasion: "",
       request: "",
     },
-    validate,
+    validationSchema: formSchema,
     onSubmit: (values) => {
       console.log("Values", values);
       setPending(false);
@@ -66,8 +45,11 @@ export default function ReservationSection() {
     <section className="reservation-subsection constrain-content">
       <form
         onSubmit={async (event) => {
-          setPending(true);
           event.preventDefault();
+          setPending(true);
+          if (Object.keys(formik.errors).length > 0) {
+            return setPending(false);
+          }
           await delay(2000);
           formik.handleSubmit(event);
         }}
@@ -153,15 +135,7 @@ export default function ReservationSection() {
           </div>
         </div>
         <div className="submit-button">
-          <button
-            className="card-title"
-            type="submit"
-            disabled={
-              pending ||
-              Object.keys(formik.errors).length > 0 ||
-              !Object.keys(formik.values).every((k) => formik.values[k] !== "")
-            }
-          >
+          <button className="card-title" type="submit" disabled={pending}>
             {pending ? "Submitting" : "Submit"}
           </button>
         </div>
