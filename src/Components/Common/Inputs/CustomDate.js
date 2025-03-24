@@ -50,7 +50,9 @@ export default function CustomDate({
       <input
         name={name}
         id={id || name}
-        className={`${"paragraph-text custom-input"} ${className}`}
+        className={`paragraph-text custom-input ${
+          icon && "with-icon"
+        } ${className}`}
         type="date"
         ref={ref}
         value={value}
