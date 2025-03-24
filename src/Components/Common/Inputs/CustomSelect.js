@@ -20,7 +20,7 @@ import "../../../styles/inputs/input.css";
  * @param {string} [className] - Additional CSS classes for the input.
  * @param {string} [error] - The error message that will be displayed when the input is invalid.
  * @param {boolean} [touched] - A flag that indicates if the input has been interacted with or not.
- * @returns
+ * @returns {React.Component} The custom select dropdown input.
  */
 export default function CustomSelect({
   name,
@@ -41,7 +41,9 @@ export default function CustomSelect({
   return (
     <BaseInput icon={icon} touched={touched} error={error}>
       <select
-        className={`${"paragraph-text custom-input"} ${className}`}
+        className={`paragraph-text custom-input ${
+          icon && "with-icon"
+        } ${className}`}
         id={id || name}
         name={name}
         value={value || options[0].value}
