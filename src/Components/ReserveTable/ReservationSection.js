@@ -22,6 +22,7 @@ import CustomTextArea from "../Common/Inputs/CustomTextArea";
 
 export default function ReservationSection() {
   const [pending, setPending] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const formik = useFormik({
     initialValues: {
@@ -46,6 +47,9 @@ export default function ReservationSection() {
       <form
         onSubmit={async (event) => {
           event.preventDefault();
+          if (!submitted) {
+            setSubmitted(true);
+          }
           setPending(true);
           if (Object.keys(formik.errors).length > 0) {
             return setPending(false);
@@ -95,9 +99,12 @@ export default function ReservationSection() {
                 { text: "14:45 PM", unavailable: true },
                 { text: "15:00 PM", unavailable: true },
               ]}
+              selected={formik.values.appointedTime}
               onSelected={(hour) =>
                 formik.setFieldValue("appointedTime", hour.text)
               }
+              submitted={submitted}
+              error={formik.errors.appointedTime}
             />
           </div>
         )}
@@ -211,20 +218,31 @@ function TimeSelectInput({ value, onChange, onBlur, error, touched }) {
   );
 }
 
-function TimeWindowTagButtons({ hourWindow, onSelected }) {
+function TimeWindowTagButtons({
+  hourWindow,
+  selected,
+  onSelected,
+  submitted,
+  error,
+}) {
   return (
-    <div className="grid time-window-subsection-grid">
-      {(hourWindow || []).map((hour) => (
-        <button
-          type="button"
-          key={hour.text}
-          className="tag tag-button"
-          onClick={() => onSelected(hour)}
-          disabled={hour.unavailable}
-        >
-          {hour.text}
-        </button>
-      ))}
+    <div>
+      <div className="grid time-window-subsection-grid">
+        {(hourWindow || []).map((hour) => (
+          <button
+            type="button"
+            key={hour.text}
+            className={`tag tag-button ${
+              selected === hour.text && "tag-button-selected"
+            }`}
+            onClick={() => onSelected(hour)}
+            disabled={hour.unavailable}
+          >
+            {hour.text}
+          </button>
+        ))}
+      </div>
+      {submitted && error && <p className="input-error">{error}</p>}
     </div>
   );
 }
