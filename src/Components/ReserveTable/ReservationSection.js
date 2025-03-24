@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import CustomSelect from "../Common/Inputs/CustomSelect";
 
-import { delay } from "../../utils/timer";
+import { delay } from "../../utils/time";
 
 import { faCalendarAlt } from "@fortawesome/free-regular-svg-icons/faCalendarAlt";
 import { faCalendarXmark } from "@fortawesome/free-regular-svg-icons/faCalendarXmark";
@@ -17,6 +17,7 @@ import CustomTime from "../Common/Inputs/CustomTime";
 import { formSchema } from "../../utils/form";
 
 import { useFormik } from "formik";
+import useMockHours from "../../Hooks/useMockHours";
 import CustomText from "../Common/Inputs/CustomText";
 import CustomTextArea from "../Common/Inputs/CustomTextArea";
 
@@ -92,13 +93,7 @@ export default function ReservationSection() {
           <div className="time-window-subsection">
             <h4 className="card-title">Select a time</h4>
             <TimeWindowTagButtons
-              hourWindow={[
-                { text: "14:00 PM", unavailable: false },
-                { text: "14:15 PM", unavailable: false },
-                { text: "14:30 PM", unavailable: false },
-                { text: "14:45 PM", unavailable: true },
-                { text: "15:00 PM", unavailable: true },
-              ]}
+              time={formik.values.time}
               selected={formik.values.appointedTime}
               onSelected={(hour) =>
                 formik.setFieldValue("appointedTime", hour.text)
@@ -108,7 +103,7 @@ export default function ReservationSection() {
             />
           </div>
         )}
-        <div className="reservation-details-subsection">
+        <div className="reservation-subsection reservation-details-subsection">
           <h4>Reservation Details Section</h4>
           <div className="grid reservation-details-subsection-grid">
             <NameInput
@@ -219,16 +214,17 @@ function TimeSelectInput({ value, onChange, onBlur, error, touched }) {
 }
 
 function TimeWindowTagButtons({
-  hourWindow,
+  time,
   selected,
   onSelected,
   submitted,
   error,
 }) {
+  const hours = useMockHours(time);
   return (
     <div>
       <div className="grid time-window-subsection-grid">
-        {(hourWindow || []).map((hour) => (
+        {hours.map((hour) => (
           <button
             type="button"
             key={hour.text}
