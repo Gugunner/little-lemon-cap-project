@@ -5,6 +5,7 @@ import CustomSelect from "../Common/Inputs/CustomSelect";
 import { delay } from "../../utils/timer";
 
 import { faCalendarAlt } from "@fortawesome/free-regular-svg-icons/faCalendarAlt";
+import { faCalendarXmark } from "@fortawesome/free-regular-svg-icons/faCalendarXmark";
 import { faClock } from "@fortawesome/free-regular-svg-icons/faClock";
 import { faUser } from "@fortawesome/free-regular-svg-icons/faUser";
 
@@ -14,6 +15,8 @@ import CustomDate from "../Common/Inputs/CustomDate";
 import CustomTime from "../Common/Inputs/CustomTime";
 
 import { useFormik } from "formik";
+import CustomText from "../Common/Inputs/CustomText";
+import CustomTextArea from "../Common/Inputs/CustomTextArea";
 
 export default function ReservationSection() {
   const [pending, setPending] = useState(false);
@@ -44,9 +47,13 @@ export default function ReservationSection() {
   const formik = useFormik({
     initialValues: {
       diners: "",
-      date: "",
+      date: new Date().toISOString().slice(0, 10),
       time: "",
       appointedTime: "",
+      name: "",
+      email: "",
+      occasion: "",
+      request: "",
     },
     validate,
     onSubmit: (values) => {
@@ -95,7 +102,7 @@ export default function ReservationSection() {
             />
           </div>
         </div>
-        {formik.values.time !== "" && (
+        {formik.values.time !== "" && !formik.errors.time && (
           <div className="time-window-subsection">
             <h4 className="card-title">Select a time</h4>
             <TimeWindowTagButtons
@@ -112,9 +119,39 @@ export default function ReservationSection() {
             />
           </div>
         )}
-        {/* <div className="reservation-details-subsection outline">
-          <h1>Reservation Details Section</h1>
-        </div> */}
+        <div className="reservation-details-subsection">
+          <h4>Reservation Details Section</h4>
+          <div className="grid reservation-details-subsection-grid">
+            <NameInput
+              value={formik.values.name}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              error={formik.errors.name}
+              touched={formik.touched.name}
+            />
+            <EmailInput
+              value={formik.values.email}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              error={formik.errors.email}
+              touched={formik.touched.email}
+            />
+            <OccassionSelectInput
+              value={formik.values.occasion}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              error={formik.errors.occasion}
+              touched={formik.touched.occasion}
+            />
+            <RequestTextArea
+              value={formik.values.request}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              error={formik.errors.request}
+              touched={formik.touched.request}
+            />
+          </div>
+        </div>
         <div className="submit-button">
           <button
             className="card-title"
@@ -215,5 +252,93 @@ function TimeWindowTagButtons({ hourWindow, onSelected }) {
         </button>
       ))}
     </div>
+  );
+}
+
+function NameInput({ value, onChange, onBlur, error, touched }) {
+  const placeholder = "Name";
+  const min = "1";
+
+  return (
+    <CustomText
+      name="name"
+      id="name"
+      value={value}
+      onChange={onChange}
+      onBlur={onBlur}
+      placeholder={placeholder}
+      min={min}
+      error={error}
+      touched={touched}
+    />
+  );
+}
+
+function EmailInput({ value, onChange, onBlur, error, touched }) {
+  const placeholder = "Email";
+
+  return (
+    <CustomText
+      name="email"
+      id="email"
+      value={value}
+      onChange={onChange}
+      onBlur={onBlur}
+      placeholder={placeholder}
+      error={error}
+      touched={touched}
+    />
+  );
+}
+
+function OccassionSelectInput({ value, onChange, onBlur, error, touched }) {
+  const options = [
+    {
+      text: "Occasion (optional)",
+      value: "",
+    },
+    {
+      text: "Birthday",
+      value: "1",
+    },
+    {
+      text: "Anniversary",
+      value: "2",
+    },
+  ];
+
+  return (
+    <CustomSelect
+      name="occasion"
+      id="occasion"
+      value={value}
+      onChange={onChange}
+      onBlur={onBlur}
+      icon={
+        <FontAwesomeIcon icon={faCalendarXmark} className="custom-input-icon" />
+      }
+      options={options}
+      className="occasion-select-input"
+      error={error}
+      touched={touched}
+    />
+  );
+}
+
+function RequestTextArea({ value, onChange, onBlur, error, touched }) {
+  const placeholder = "Special Request (optional)";
+  return (
+    <CustomTextArea
+      name="request"
+      id="request"
+      value={value}
+      onChange={onChange}
+      onBlur={onBlur}
+      rows={2}
+      cols={1}
+      placeholder={placeholder}
+      error={error}
+      touched={touched}
+    />
   );
 }
