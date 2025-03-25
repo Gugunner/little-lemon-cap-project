@@ -35,13 +35,15 @@ export default function CustomText({
   className,
   error,
   touched,
+  submitted,
+  ariaLabel,
 }) {
   function handleOnChange(event) {
     onChange(event);
   }
 
   return (
-    <BaseInput icon={icon} touched={touched} error={error}>
+    <BaseInput icon={icon} touched={touched} submitted={submitted} error={error}>
       <input
         name={name}
         id={id}
@@ -55,6 +57,7 @@ export default function CustomText({
         minLength={min}
         maxLength={max}
         placeholder={placeholder}
+        aria-label={ariaLabel}
       />
     </BaseInput>
   );

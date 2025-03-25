@@ -34,6 +34,8 @@ export default function CustomTime({
   className,
   error,
   touched,
+  submitted,
+  ariaLabel,
 }) {
   const ref = useRef(null);
   const { handleOpenPicker, handleKeyDown } = useOpenPicker(ref);
@@ -43,7 +45,7 @@ export default function CustomTime({
   }
 
   return (
-    <BaseInput icon={icon} touched={touched} error={error}>
+    <BaseInput icon={icon} touched={touched} submitted={submitted} error={error}>
       <input
         name={name}
         id={id}
@@ -59,6 +61,7 @@ export default function CustomTime({
         onKeyDown={handleKeyDown}
         min={min}
         max={max}
+        aria-label={ariaLabel}
       />
     </BaseInput>
   );

@@ -34,6 +34,7 @@ export default function CustomTextArea({
   className,
   error,
   touched,
+  ariaLabel,
 }) {
   const ref = useRef(null);
 
@@ -73,6 +74,7 @@ export default function CustomTextArea({
         rows={rows}
         cols={cols}
         placeholder={placeholder}
+        aria-label={ariaLabel}
       />
     </BaseInput>
   );
