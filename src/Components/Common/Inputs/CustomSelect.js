@@ -41,14 +41,19 @@ export default function CustomSelect({
   }
 
   return (
-    <BaseInput icon={icon} touched={touched} submitted={submitted} error={error}>
+    <BaseInput
+      icon={icon}
+      touched={touched}
+      submitted={submitted}
+      error={error}
+    >
       <select
         className={`paragraph-text custom-input ${
           icon && "with-icon"
         } ${className}`}
         id={id || name}
         name={name}
-        value={value || options[0].value}
+        value={value}
         onChange={handleOnChange}
         onBlur={onBlur}
         aria-label={ariaLabel}
