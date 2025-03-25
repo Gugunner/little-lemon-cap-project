@@ -14,6 +14,7 @@ import "../../../styles/inputs/input.css";
 export default function BaseInput({
   icon,
   touched,
+  submitted,
   error,
   children,
   className,
@@ -24,7 +25,7 @@ export default function BaseInput({
         {icon}
         {children}
       </div>
-      {touched && error && (
+      {(touched || submitted) && error && (
         <p className="input-error left-padding-16">{error}</p>
       )}
     </div>

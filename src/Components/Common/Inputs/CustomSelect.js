@@ -33,13 +33,15 @@ export default function CustomSelect({
   className,
   error,
   touched,
+  submitted,
+  ariaLabel,
 }) {
   function handleOnChange(event) {
     onChange(event);
   }
 
   return (
-    <BaseInput icon={icon} touched={touched} error={error}>
+    <BaseInput icon={icon} touched={touched} submitted={submitted} error={error}>
       <select
         className={`paragraph-text custom-input ${
           icon && "with-icon"
@@ -49,6 +51,7 @@ export default function CustomSelect({
         value={value || options[0].value}
         onChange={handleOnChange}
         onBlur={onBlur}
+        aria-label={ariaLabel}
       >
         {options.map((option, idx) => (
           <option key={option.value} value={option.value} disabled={idx === 0}>

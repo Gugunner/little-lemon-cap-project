@@ -37,6 +37,8 @@ export default function CustomDate({
   className,
   error,
   touched,
+  submitted,
+  ariaLabel,
 }) {
   const ref = useRef(null);
   const { handleOpenPicker, handleKeyDown } = useOpenPicker(ref);
@@ -46,7 +48,12 @@ export default function CustomDate({
   }
 
   return (
-    <BaseInput icon={icon} touched={touched} error={error}>
+    <BaseInput
+      icon={icon}
+      touched={touched}
+      submitted={submitted}
+      error={error}
+    >
       <input
         name={name}
         id={id || name}
@@ -62,6 +69,7 @@ export default function CustomDate({
         onKeyDown={handleKeyDown}
         min={min}
         max={max}
+        aria-label={ariaLabel}
       />
     </BaseInput>
   );
