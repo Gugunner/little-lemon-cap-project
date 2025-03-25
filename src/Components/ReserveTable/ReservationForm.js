@@ -14,11 +14,15 @@ import CustomDate from "../Common/Inputs/CustomDate";
 import CustomSelect from "../Common/Inputs/CustomSelect";
 import CustomText from "../Common/Inputs/CustomText";
 import CustomTextArea from "../Common/Inputs/CustomTextArea";
-import CustomTime from "../Common/Inputs/CustomTime";
 
 import useMockHours from "../../Hooks/useMockHours";
 
-export default function ReservationForm({ onSubmit }) {
+export default function ReservationForm({
+  hours,
+  loading,
+  updateHours,
+  onSubmit,
+}) {
   return (
     <>
       <Formik
@@ -34,7 +38,7 @@ export default function ReservationForm({ onSubmit }) {
         }}
         validationSchema={formSchema}
         onSubmit={async (values, actions) => {
-          await delay(2000);
+          await delay(1000);
           onSubmit(values);
         }}
         validateOnMount={true}
@@ -59,12 +63,16 @@ export default function ReservationForm({ onSubmit }) {
                 />
                 <DateInput
                   value={props.values.date}
-                  onChange={props.handleChange}
+                  onChange={(event) => {
+                    props.handleChange(event);
+                    updateHours(event.target.value);
+                  }}
                   onBlur={props.handleBlur}
                   touched={props.touched.date}
                   submitted={props.submitCount > 0}
                 />
                 <TimeSelectInput
+                  options={hours}
                   value={props.values.time}
                   onChange={(event) => {
                     props.setFieldValue("appointedTime", "");
@@ -133,7 +141,7 @@ export default function ReservationForm({ onSubmit }) {
                 className="card-title"
                 type="submit"
                 aria-label="submit"
-                disabled={props.isSubmitting}
+                disabled={props.isSubmitting || loading}
               >
                 {props.isSubmitting ? "Submitting" : "Submit"}
               </button>
@@ -206,24 +214,23 @@ function DateInput({ value, onChange, onBlur, error, touched, submitted }) {
 
 function TimeSelectInput({
   value,
+  options,
   onChange,
   onBlur,
   error,
   touched,
   submitted,
 }) {
-  const minValue = "09:00";
-  const maxValue = "20:00";
   return (
-    <CustomTime
+    <CustomSelect
       name="time"
       id="time"
       value={value}
       onChange={onChange}
       onBlur={onBlur}
-      min={minValue}
-      max={maxValue}
       icon={<FontAwesomeIcon icon={faClock} className="custom-input-icon" />}
+      options={options}
+      className="diners-select-input"
       error={error}
       touched={touched}
       submitted={submitted}
