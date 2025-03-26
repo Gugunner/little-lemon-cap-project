@@ -1,5 +1,5 @@
 const homePath = "/";
-
 const reserveTablePath = "/reserve-table";
+const confirmReservePath = "confirm-reservation";
 
-export { homePath, reserveTablePath };
+export { confirmReservePath, homePath, reserveTablePath };
