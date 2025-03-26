@@ -1,3 +1,5 @@
+import { delay } from "../utils/time";
+
 const seededRandom = function (seed) {
   var m = 2 ** 35 - 31;
   var a = 185852;
@@ -7,7 +9,7 @@ const seededRandom = function (seed) {
   };
 };
 
-export const fetchAPI = function (date) {
+export const fetchAPI = async (date) => {
   let result = [];
   let random = seededRandom(date.getDate());
 
@@ -19,6 +21,7 @@ export const fetchAPI = function (date) {
       result.push(i + ":30");
     }
   }
+  await delay(500);
   return result;
 };
 export const submitAPI = function (formData) {
