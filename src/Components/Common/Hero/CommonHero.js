@@ -18,15 +18,14 @@ function HeroDescription({ description }) {
 
 function HeroButton({ text, url }) {
   return (
-    <button className="card-title hero-button">
-      <Link to={url}>{text}</Link>
-    </button>
+    <Link className="card-title hero-button" to={url}>
+      {text}
+    </Link>
   );
 }
 
 function HeroImage({ imageUrl, altText }) {
   const dimensions = useWindowDimensions();
-
   return (
     <img
       className={`hero-image justify-self-end ${

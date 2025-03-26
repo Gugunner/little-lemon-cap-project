@@ -102,7 +102,13 @@
   color: white;
 }
 
-.hero-section button {
+.hero-button {
+  text-align: center;
+  text-decoration: none;
+  color: black;
+}
+
+.appeal-action .hero-button {
   margin-top: 16px;
 }
 
