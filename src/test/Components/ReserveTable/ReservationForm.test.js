@@ -52,30 +52,32 @@ describe("Reservation Form", () => {
       />
     );
 
-    fireEvent.change(screen.getByLabelText("Number of diners select"), {
+    await act(() => delay(500));
+
+    fireEvent.change(screen.getByLabelText("Number of diners"), {
       target: { value: expectedValues.diners },
     });
 
-    fireEvent.change(screen.getByLabelText("Date picker for reservation"), {
+    fireEvent.change(screen.getByLabelText("Reservation date"), {
       target: { value: expectedValues.date },
     });
 
-    fireEvent.change(screen.getByLabelText("Time picker for reservation"), {
+    fireEvent.change(screen.getByLabelText("Reservation time"), {
       target: { value: expectedValues.time },
     });
 
     await waitFor(() => {
-      const tagButtons = screen.getAllByLabelText(/schedule reservation/i);
+      const tagButtons = screen.getAllByLabelText(/available reservation at/i);
       const availableButton = tagButtons.find((tb) => !tb.disabled);
       expectedValues.appointedTime = availableButton?.getAttribute("data-time");
       fireEvent.click(availableButton);
     });
 
-    fireEvent.change(screen.getByLabelText("Name input"), {
+    fireEvent.change(screen.getByLabelText("Your name"), {
       target: { value: expectedValues.name },
     });
 
-    fireEvent.change(screen.getByLabelText("Email input"), {
+    fireEvent.change(screen.getByLabelText("Email address"), {
       target: { value: expectedValues.email },
     });
 
