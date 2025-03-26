@@ -1,0 +1,10 @@
+.confirm-reserve-section-grid {
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.confirm-reserve-section ul {
+  list-style: none;
+  list-style-type: none;
+}
+
