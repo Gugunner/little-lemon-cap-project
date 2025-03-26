@@ -2,15 +2,19 @@ import React from "react";
 import Footer from "./Footer";
 import Header from "./Header";
 
+import { Outlet } from "react-router";
 import "../styles/helpers.css";
 import "../styles/reserve-table.css";
-import Main from "./ReserveTable/Main";
+import ReserveHeroSection from "./ReserveTable/ReserveHeroSection";
 
 export default function ReserveTablePage() {
   return (
     <>
       <Header />
-      <Main />
+      <main>
+        <ReserveHeroSection />
+        <Outlet />
+      </main>
       <Footer />
     </>
   );
