@@ -49,7 +49,7 @@ const formSchema = object({
       },
     })
     .required("A time needs to be selected"),
-  appointedTime: string().required("Please provide a specific time"),
+  appointedTime: string().required("Please choose a time that is available"),
   name: string()
     .test(
       "is-name",
