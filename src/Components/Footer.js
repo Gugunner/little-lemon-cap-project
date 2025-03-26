@@ -80,6 +80,7 @@ function SocialMedia() {
 export default function Footer() {
   return (
     <footer className="footer-navigation constrain-content">
+      <hr />
       <div className="flex-column justify-center full-height">
         <div className="flex-row justify-between full-width wrap-footer center-items">
           <LittleLemonLogo />
