@@ -201,6 +201,11 @@ li a:visited {
   padding-bottom: var(--spacing-16);
 }
 
+.vertical-padding-8 {
+  padding-top: var(--spacing-8);
+  padding-bottom: var(--spacing-8);
+}
+
 .vertical-bpadding-28 {
   padding-bottom: var(--spacing-28);
 }
