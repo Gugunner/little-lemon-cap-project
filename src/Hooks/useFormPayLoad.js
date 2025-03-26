@@ -50,7 +50,7 @@ export default function useFormPayLoad() {
     dispatch({
       type: "loading",
     });
-    const nextHours = fetchAPI(new Date(date));
+    const nextHours = await fetchAPI(new Date(date));
     dispatch({
       type: "update-hours",
       payload: nextHours,
