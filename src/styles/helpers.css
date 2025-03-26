@@ -241,6 +241,11 @@ li a:visited {
   flex-wrap: nowrap;
 }
 
+.hero-button.animate-press {
+  animation: press-effect 0.15s;
+  animation-timing-function: step-end;
+}
+
 .hero-button,
 button {
   display: inline-block;
@@ -252,7 +257,7 @@ button {
 }
 
 button:active {
-  background-color: var(--primary-1);
+  background-color: var(--primary-1) !important;
   color: white;
 }
 
@@ -261,4 +266,18 @@ button:disabled {
   /* stylelint-disable-next-line color-function-notation -- requires opacity */
   color: rgba(0, 0, 0, 0.7);
   opacity: 0.7;
+}
+
+/* ANIMATION */
+
+@keyframes press-effect {
+  0% {
+    background-color: var(--primary-1);
+    color: white;
+  }
+
+  100% {
+    background-color: var(--primary-2);
+    color: black;
+  }
 }

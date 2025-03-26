@@ -15,6 +15,7 @@ import CustomSelect from "../Common/Inputs/CustomSelect";
 import CustomText from "../Common/Inputs/CustomText";
 import CustomTextArea from "../Common/Inputs/CustomTextArea";
 
+import useKeyPressFeedback from "../../Hooks/useKeyPressFeedback";
 import useMockHours from "../../Hooks/useMockHours";
 
 export default function ReservationForm({
@@ -87,7 +88,7 @@ export default function ReservationForm({
             </div>
             {props.values.time !== "" && !props.errors.time && (
               <div className="time-window-subsection">
-                <h4 className="card-title">Select a time</h4>
+                <h4 className="card-title">Available time</h4>
                 <TimeWindowTagButtons
                   time={props.values.time}
                   selected={props.values.appointedTime}
@@ -137,14 +138,10 @@ export default function ReservationForm({
               </div>
             </div>
             <div className="submit-button">
-              <button
-                className="card-title"
-                type="submit"
-                aria-label="submit"
-                disabled={props.isSubmitting || loading}
-              >
-                {props.isSubmitting ? "Submitting" : "Submit"}
-              </button>
+              <SubmitButton
+                isSubmitting={props.isSubmitting}
+                loading={loading}
+              />
             </div>
           </form>
         )}
@@ -183,7 +180,7 @@ function DinersSelectInput({
       error={error}
       touched={touched}
       submitted={submitted}
-      ariaLabel="Number of diners select"
+      ariaLabel="Number of diners"
     />
   );
 }
@@ -207,7 +204,7 @@ function DateInput({ value, onChange, onBlur, error, touched, submitted }) {
       error={error}
       touched={touched}
       submitted={submitted}
-      ariaLabel="Date picker for reservation"
+      ariaLabel="Reservation date"
     />
   );
 }
@@ -234,7 +231,7 @@ function TimeSelectInput({
       error={error}
       touched={touched}
       submitted={submitted}
-      ariaLabel="Time picker for reservation"
+      ariaLabel="Reservation time"
     />
   );
 }
@@ -249,7 +246,7 @@ function TimeWindowTagButtons({
 }) {
   const hours = useMockHours(time);
   return (
-    <div aria-label="Tag buttons with available times based on selected time">
+    <div role="group" aria-label="Available reservation times">
       <div className="grid time-window-subsection-grid">
         {(fetchedHours || hours).map((hour) => (
           <button
@@ -261,7 +258,7 @@ function TimeWindowTagButtons({
             onClick={() => onSelected(hour)}
             data-time={hour.text}
             disabled={hour.unavailable}
-            aria-label={`Schedule reservation at ${hour.text}`}
+            aria-label={`Available reservation at ${hour.text}`}
           >
             {hour.text + (parseTime(hour.text).hour >= 12 ? " PM" : " AM")}
           </button>
@@ -288,7 +285,7 @@ function NameInput({ value, onChange, onBlur, error, touched, submitted }) {
       error={error}
       touched={touched}
       submitted={submitted}
-      ariaLabel="Name input"
+      ariaLabel="Your name"
     />
   );
 }
@@ -307,7 +304,7 @@ function EmailInput({ value, onChange, onBlur, error, touched, submitted }) {
       error={error}
       touched={touched}
       submitted={submitted}
-      ariaLabel="Email input"
+      ariaLabel="Email address"
     />
   );
 }
@@ -350,7 +347,7 @@ function OccassionSelectInput({
       error={error}
       touched={touched}
       submitted={submitted}
-      ariaLabel="Optional occasion select"
+      ariaLabel="Optional special occasion"
     />
   );
 }
@@ -379,5 +376,22 @@ function RequestTextArea({
       submitted={submitted}
       ariaLabel="Optional special requests"
     />
+  );
+}
+
+function SubmitButton({ isSubmitting, loading }) {
+  const { ref, handleKeyDown } = useKeyPressFeedback();
+
+  return (
+    <button
+      ref={ref}
+      className="card-title hero-button"
+      type="submit"
+      aria-label="submit"
+      disabled={isSubmitting || loading}
+      onKeyDown={handleKeyDown}
+    >
+      {isSubmitting ? "Submitting" : "Submit"}
+    </button>
   );
 }
