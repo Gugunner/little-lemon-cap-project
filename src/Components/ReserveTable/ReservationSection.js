@@ -6,10 +6,14 @@ import "../../styles/reserve/reservation.css";
 import { submitAPI } from "../../api/api";
 import ReservationForm from "./ReservationForm";
 
+import { useNavigate } from "react-router";
+import { confirmReservePath } from "../../Constants/paths";
 import useFormPayLoad from "../../Hooks/useFormPayLoad";
 
 export default function ReservationSection() {
   const { state, updateHours } = useFormPayLoad();
+
+  const navigate = useNavigate();
 
   return (
     <section className="reservation-subsection constrain-content">
@@ -18,10 +22,12 @@ export default function ReservationSection() {
         loading={state.loading}
         fetchError={state.error}
         updateHours={updateHours}
-        onSubmit={(values) => {
+        onSubmit={async (values) => {
           const success = submitAPI(values);
           if (success) {
-            console.log("Submitted values", values);
+            navigate(confirmReservePath, {
+              state: { reservationData: values },
+            });
           }
         }}
       />
