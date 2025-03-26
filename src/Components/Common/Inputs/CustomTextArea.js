@@ -65,7 +65,7 @@ export default function CustomTextArea({
     <BaseInput touched={touched} error={error} className="auto-height-wrapper">
       <textarea
         name={name}
-        id={id}
+        id={id || name}
         ref={ref}
         className={`paragraph-text custom-input custom-text-area ${className}`}
         value={value}

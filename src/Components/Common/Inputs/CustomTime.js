@@ -48,7 +48,7 @@ export default function CustomTime({
     <BaseInput icon={icon} touched={touched} submitted={submitted} error={error}>
       <input
         name={name}
-        id={id}
+        id={id || name}
         className={`paragraph-text custom-input ${
           icon && "with-icon"
         } ${className}`}
